@@ -29,6 +29,14 @@ public class Room {
     this.exits = exits;
   }
 
+  public Exit matchKeyID(String keyID, ArrayList<Exit> exits){
+    for(Exit exit : exits){
+      if(exit.getKeyId().equals(keyID))
+        return exit;
+    }
+    return null;
+  }
+
   /**
    * Create a room described "description". Initially, it has no exits.
    * "description" is something like "a kitchen" or "an open court yard".
@@ -181,6 +189,6 @@ public class Room {
   }
 
   public Inventory getInventory() {
-      return inventory;
+    return inventory;
   }
 }

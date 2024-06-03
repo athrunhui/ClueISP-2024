@@ -34,7 +34,7 @@
           "isLocked": true,
           "direction": "Northwest",
           "adjacentRoom": "Bathroom",
-          "keyId": "5678"
+          "keyId": "0429"
         },
         {
           "isLocked": false,
@@ -60,8 +60,7 @@
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Library",
-          "keyId": "7890"
+          "adjacentRoom": "Library"
         },
         {
           "isLocked": false,
@@ -89,8 +88,7 @@
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Hall",
-          "keyId": "8901"
+          "adjacentRoom": "Hall"
         }
       ]
     },
@@ -108,8 +106,7 @@
         {
           "isLocked": true,
           "direction": "North",
-          "adjacentRoom": "Kitchen",
-          "keyId": "9012"
+          "adjacentRoom": "Kitchen"
         }
       ]
     },
@@ -127,8 +124,7 @@
         {
           "isLocked": true,
           "direction": "West",
-          "adjacentRoom": "Secret Passage to Study",
-          "keyId": "4567"
+          "adjacentRoom": "Secret Passage to Study"
         }
       ]
     },
@@ -173,7 +169,7 @@
           "isLocked": true,
           "direction": "West",
           "adjacentRoom": "Secret Passage to Lounge",
-          "keyId": "3456"
+          "keyId": "8624"
         }
       ]
     },
@@ -218,7 +214,7 @@
           "isLocked": true,
           "direction": "South",
           "adjacentRoom": "Secret Passage to Kitchen",
-          "keyId": "2345"
+          "keyId": "0616"
         }
       ]
     },

@@ -432,15 +432,6 @@
         "isExaminable": "true"
     },
     {
-        "id": "Rug",
-        "name": "Fur Rug",
-        "description": "soft fur rug lays flat on the ground with a lump in the middle...",
-        "room_id": "Study",
-        "weight": "999999", 
-        "isOpenable": "true",
-        "isExaminable": "true"
-    },
-    {
         "id": "Plant",
         "name": "Big Leafy Plant",
         "description": "big leafy plant rests in the middle of the room, there is something shiny in the dirt...",

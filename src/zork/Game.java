@@ -189,6 +189,14 @@ public class Game {
       }else{
         examine(command.getSecondWord());
       }      
+    } else if(commandWord.equals("use")) {
+        if(!command.hasSecondWord()){
+          System.out.println("What do you want to use?");
+          return false;
+        } else{
+          use(command.getSecondWord());
+        }
+
     } else if(commandWord.equals("check")) {
         player.getInventory().printPlayerItems();
     } else if (commandWord.equals("talk")){
@@ -223,6 +231,24 @@ public class Game {
   }
   // implementations of user commands:
 
+  private void use(String secondWord) {
+    Item item = player.getInventory().getItem(secondWord);
+    if(item == null)
+      System.out.println("You do not have this item.");
+    else if(secondWord.toLowerCase().indexOf("key") >= 0){
+      Exit open = currentRoom.matchKeyID(item.getKeyId(), currentRoom.getExits());
+      if(open != null){
+        System.out.println("You use the key to open the " + open.getAdjacentRoom() + ".");
+        open.setLocked(false);
+      }
+      else
+        System.out.println("Your key cannot open any rooms. :(");      
+    } else {
+      System.out.println("You place the " + item.getName() + " in the " + currentRoom.getRoomName());
+      currentRoom.getInventory().addItem(player.getInventory().removeItem(item.getName(), Integer.MAX_VALUE));
+    }
+  }
+
   private void examine(String secondWord){
     if(currentRoom.getInventory().findItem(secondWord.toLowerCase())){
       Item a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
@@ -238,9 +264,20 @@ public class Game {
           else if(a.getName().equals("Bookshelf")) {
             System.out.println("You pull out the book and hear that the door to the library has opened.");
             currentRoom.findExit("library").setLocked(false);
+            a.setOpenable(false);
+            a.setDescription("bookshelf full of books sits along the wall");
           } else if(a.getName().equals("Painting")){
-            System.out.println("You fix the angled painting and a silver key drops out. You pick up the key.");
-            player.getInventory().addItem(itemMap.get("KeyB"));
+            System.out.println("You fix the angled painting and a silver key drops out.");
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Silver Key", Integer.MAX_VALUE));
+            a.setOpenable(false);
+            a.setDescription("painting of Mount Everest hangs on the wall");
+          } else if(a.getName().equals("Big Leafy Plant")){
+            System.out.println("You move the leaves aside and see a bronze key hiding in the dirt.");
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Bronze Key", Integer.MAX_VALUE));
+            a.setOpen(false);
+            a.setDescription("big leafy plant rests in the middle of the room");
+            
+            
           }
 
 
@@ -311,6 +348,7 @@ public class Game {
       System.out.println("There is no door!");
     else if(currentRoom.getExit(direction).isLocked()){
       System.out.println("This room is locked, you have to find the key to unlock it.");
+      System.out.println("If you have the key, enter 'use ____ key'");
     } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
