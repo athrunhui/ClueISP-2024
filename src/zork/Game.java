@@ -76,7 +76,7 @@ public class Game {
           randomRoom random = new randomRoom();
           String roomId = random.setRoomid();
           roomMap.get(roomId).getInventory().addItem(item);
-        }else {
+        } else {
           String itemId = (String)((JSONObject) itemObj).get("item_id");
           itemMap.get(itemId).getInventory().addItem(item);
         }      
