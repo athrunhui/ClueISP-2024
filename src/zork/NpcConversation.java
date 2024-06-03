@@ -35,7 +35,7 @@ public class NpcConversation {
             " this place has so many rooms! I believe I was in the " + randRoom.setRoomid());
         }
         if(response == 2){
-
+            System.out.println("Mr Broddy? We go way back! Ever since middle school!");
         }
     }
 
@@ -50,7 +50,7 @@ public class NpcConversation {
             " to find something exciting. I believe I was in the " + randRoom.setRoomid() + ".");
         }
         if(response == 2){
-
+            System.out.println("I know him from some business deals I was involved in. He's a nice guy, really!");
         }
     }
 
@@ -65,7 +65,7 @@ public class NpcConversation {
             randRoom.setRoomid() + ", there was a particular bird species I wanted her opinion on.");
         }
         if(response == 2){
-
+            System.out.println("I knew him from a friend of a friend. He seemed fun, such a shame this happened to him.");
         }
     }
 
@@ -80,7 +80,7 @@ public class NpcConversation {
             randRoom.setRoomid() + ".");
         }
         if(response == 2){
-
+            System.out.println("Mr Broddy! I knew his folks, we went way back.");
         }
     }
 
@@ -95,7 +95,7 @@ public class NpcConversation {
             randRoom.setRoomid() + ". Now it seems I have even more work, cleaning up all the blood.");
         }
         if(response == 2){
-
+            System.out.println("How I knew him? He was my boss!");
         }
     }
 }
