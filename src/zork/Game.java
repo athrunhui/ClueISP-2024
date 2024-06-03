@@ -54,24 +54,29 @@ public class Game {
       String description = (String)((JSONObject) itemObj).get("description");
       Boolean murWep = Boolean.parseBoolean((String)((JSONObject) itemObj).get("murderWeapon"));
       String keyid = (String)((JSONObject) itemObj).get("keyid");
-      /*if(name.indexOf("key") > 0){
-        Key key = new Key(keyid, name, description)
-      } else   */    
-        Item item = new Item(weight, name, open, examine, description, bloody, murWep);
-      //}
-      Boolean idNThere = Objects.isNull(((JSONObject) itemObj).get("room_id"));
-      if(!idNThere){
-        String roomid = (String)((JSONObject) itemObj).get("room_id");
-        roomMap.get(roomid).getInventory().addItem(item);
-      } else if(murWep){
-        String roomid = randRoom.setRoomid();
-        roomMap.get(roomid).getInventory().addItem(item);
-      } else if(id.equals("Blood") || id.equals("Bloody")){}
-      else {
+      if(name.indexOf("key") > 0){
+        Key key = new Key(keyid, name, description);
         String itemId = (String)((JSONObject) itemObj).get("item_id");
-        itemMap.get(itemId).getInventory().addItem(item);
-      }      
+        itemMap.put(itemId, key);
+      } else {
+        Item item = new Item(weight, name, open, examine, description, bloody, murWep);
+        Boolean idNThere = Objects.isNull(((JSONObject) itemObj).get("room_id"));
+        if(!idNThere){
+          String roomid = (String)((JSONObject) itemObj).get("room_id");
+          roomMap.get(roomid).getInventory().addItem(item);
+        } else if(murWep){
+          String roomid = randRoom.setRoomid();
+          roomMap.get(roomid).getInventory().addItem(item);
+        } else if(id.equals("Blood")) {
+          String itemId = randBlood.getBloodyItem();
+          itemMap.get(itemId).getInventory().addItem(item);
+        } else if(id.equals("Bloody")){}
+        else {
+          String itemId = (String)((JSONObject) itemObj).get("item_id");
+          itemMap.get(itemId).getInventory().addItem(item);
+        }      
       itemMap.put(id, item);
+      }
     }
   }
 
@@ -192,9 +197,12 @@ public class Game {
     if(currentRoom.getInventory().findItem(secondWord)){
       Item a = currentRoom.getInventory().getItem(secondWord);
       System.out.println(a.getDescription());
-      if(a.isBloody())
-        System.out.println("As you examine the weapon, you see that its bloody!!!" +
-        "This is the murder weapon!");
+      if(a.isBloody()){
+        System.out.println("Upon further inspection of the item, you find that its bloody!!!" +
+        "This is the weapon used for the murder!");
+      } else if(a.isMurWep()){
+        System.out.println("As you examine the item, you find that this is a potential murder weapon.");
+      }
     }
   }
 

@@ -8,14 +8,17 @@ public class Item extends OpenableObject {
   private String description;
   private boolean isBloody;
   private Inventory inventory;
+  private boolean isMurWep;
 
-  public Item(int weight, String name, boolean isOpenable, boolean isExaminable, String description, Boolean isBloody) {
+  public Item(int weight, String name, boolean isOpenable, boolean isExaminable, 
+  String description, boolean isBloody, boolean isMurWep) {
     this.weight = weight;
     this.name = name;
     this.isOpenable = isOpenable;
     this.isExaminable = isExaminable;
     this.description = description;
     this.isBloody = isBloody;
+    this.isMurWep = isMurWep;
     inventory = new Inventory(1);
   }
 
@@ -71,6 +74,10 @@ public class Item extends OpenableObject {
 
   public void setBloody(boolean isBloody) {
     this.isBloody = isBloody;
+  }
+  
+  public boolean isMurWep() {
+    return isMurWep;
   }
 
   public Inventory getInventory() {

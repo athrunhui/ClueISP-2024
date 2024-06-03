@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class randomBloody {
     private ArrayList<String> items;
     private static int itemNumber;
+    public static String bloodyItem; 
 
     public randomBloody(){
         items = new ArrayList<>();
@@ -18,16 +19,22 @@ public class randomBloody {
         items.add("Shovel");
         items.add("Letter Opener");
         items.add("Golf Club");
+        itemNumber = (int)(Math.random()*items.size());
     }
 
     public Boolean setBloodyItem(String item){
-        itemNumber = (int)(Math.random()*items.size());
         for(String a : items){
             if(a.equals(item)){
-              if(items.get(itemNumber).equals(a))
+              if(items.get(itemNumber).equals(a)){
+                bloodyItem = a;
                 return true;
+              }
             }
         }
         return false;
+    }
+
+    public String getBloodyItem() {
+        return bloodyItem;
     }
 }
