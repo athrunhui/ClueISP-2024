@@ -27,6 +27,7 @@
     {
       "id": "Hall",
       "name": "Hall",
+      "npc":"Green",
       "longDescription": "The grand hall of the mansion boasts towering ceilings and a magnificent crystal chandelier that casts a soft glow over the polished marble floor. Portraits of stern ancestors line the walls, their eyes seemingly following your every move as you step inside.",
       "shortDescription": "A grand hall with high ceilings and a crystal chandelier.",
       "exits": [ 
@@ -78,6 +79,7 @@
     {
       "id": "Lounge",
       "name": "Lounge",
+      "npc":"Scarlet",
       "longDescription": "The mansion's lounge is a warm and inviting space, filled with plush, overstuffed chairs and sofas. A roaring fireplace crackles in the corner, casting a comforting glow. Shelves lined with well-read books and curious knick-knacks add to the room's charm and character.",
       "shortDescription": "A cozy lounge with plush seating and a roaring fireplace.",
       "exits": [
@@ -97,6 +99,7 @@
     {
       "id": "Dining Room",
       "name": "Dining Room",
+      "npc":"Plum",
       "longDescription": "The elegant dining room features a long, polished mahogany table set with fine china and gleaming silverware. A candelabrum serves as the table's centerpiece, casting flickering light onto the intricate, patterned wallpaper. The room's air carries the faint scent of past feasts.",
       "shortDescription": "An elegant dining room with a long table set for a feast.",
       "exits": [
@@ -116,6 +119,7 @@
     {
       "id": "Kitchen",
       "name": "Kitchen",
+      "npc":"Mustard",
       "longDescription": "The mansion's kitchen is the heart of the home, equipped with modern appliances and a large central island for preparation. Pots and pans hang from a ceiling rack, and the aroma of fresh herbs and spices fills the air, creating a lively and welcoming atmosphere.",
       "shortDescription": "A bustling kitchen with modern appliances and a large island.",
       "exits": [
@@ -135,6 +139,7 @@
     {
       "id": "Bathroom",
       "name": "Bathroom",
+      "npc":"White",
       "longDescription": "This charming bathroom features a classic clawfoot tub and a sleek pedestal sink. The tiled floor is pristine, and a large mirror reflects the soft light from a frosted glass window. The scent of lavender and eucalyptus adds to the room's refreshing ambiance.",
       "shortDescription": "A nice bathroom with a clawfoot tub and a pedestal sink.",
       "exits": [
