@@ -55,9 +55,10 @@ public class Game {
       String description = (String)((JSONObject) itemObj).get("description");
       Boolean murWep = Boolean.parseBoolean((String)((JSONObject) itemObj).get("murderWeapon"));
       String keyid = (String)((JSONObject) itemObj).get("keyid");
-      if(name.indexOf("Key") > 0){
+      if(name.indexOf("Key") >= 0){
         Key key = new Key(keyid, name, description);
         String itemId = (String)((JSONObject) itemObj).get("item_id");
+        itemMap.get(itemId).getInventory().addItem(key);
         itemMap.put(itemId, key);
       } else {
         Item item = new Item(weight, name, open, examine, description, bloody, murWep);
@@ -75,8 +76,7 @@ public class Game {
           randomRoom random = new randomRoom();
           String roomId = random.setRoomid();
           roomMap.get(roomId).getInventory().addItem(item);
-        }
-        else {
+        }else {
           String itemId = (String)((JSONObject) itemObj).get("item_id");
           itemMap.get(itemId).getInventory().addItem(item);
         }      
@@ -204,6 +204,14 @@ public class Game {
           return false;
         } else{
           Item pickUp = currentRoom.getInventory().getItem(command.getSecondWord().toLowerCase());
+          if (pickUp == null){
+            // check if it is in an item in the room.
+            for (Item item : currentRoom.getInventory().getItems()) {
+              pickUp = item.getInventory().getItem(command.getSecondWord().toLowerCase());
+              if (pickUp != null)
+                break;
+            }
+          }
           if (pickUp == null)
             System.out.println("This is not an item.");
           else

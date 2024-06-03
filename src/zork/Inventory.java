@@ -13,6 +13,10 @@ public class Inventory {
     this.currentWeight = 0;
   }
 
+  public ArrayList<Item> getItems(){
+    return this.items;
+  }
+
   public int getMaxWeight() {
     return maxWeight;
   }
