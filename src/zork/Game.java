@@ -19,6 +19,7 @@ public class Game {
   private Parser parser;
   private static Room currentRoom;
   private character player = new character("Player");
+  private guess guess = new guess();
 
   /**
    * Create the game and initialise its internal map.
@@ -254,12 +255,15 @@ public class Game {
       Item a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
       System.out.println("You see a " + a.getDescription());
       if(a.isBloody()){
+        System.out.println("As you examine the item, you find that this is a potential murder weapon.");
         System.out.println("Upon further inspection of the item, you find that its bloody!!!" +
         "This is the weapon used for the murder!");
       } else if(a.isMurWep()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
       } else if(a.isOpenable()){
           if(a.getName().equals("Sherlock Holmes Book"))
+            System.out.println("Should you really be reading now?");
+          else if(a.getName().equals("journal"))
             System.out.println("Should you really be reading now?");
           else if(a.getName().equals("Bookshelf")) {
             System.out.println("You pull out the book and hear that the door to the library has opened.");
@@ -271,21 +275,20 @@ public class Game {
             currentRoom.getInventory().addItem(a.getInventory().removeItem("Silver Key", Integer.MAX_VALUE));
             a.setOpenable(false);
             a.setDescription("painting of Mount Everest hangs on the wall");
-          } else if(a.getName().equals("Big Leafy Plant")){
-            System.out.println("You move the leaves aside and see a bronze key hiding in the dirt.");
-            currentRoom.getInventory().addItem(a.getInventory().removeItem("Bronze Key", Integer.MAX_VALUE));
+          } else if(a.getName().equals("Plant")){
+            System.out.println("You move the leaves aside and see a gold key hiding in the dirt.");
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Gold Key", Integer.MAX_VALUE));
             a.setOpen(false);
-            a.setDescription("big leafy plant rests in the middle of the room");
-            
-            
+            a.setDescription("big leafy plant rests in the middle of the room");            
+          } else if(a.getName().equals("Desk")){
+            System.out.println("You open the ajar drawer and see a bronze key inside");
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Bronze Key", Integer.MAX_VALUE));
+            a.setOpenable(false);
+            a.setDescription("large mahogany desk sits at the back of the room");
           }
-
-
-      } else {
-        System.out.println("This is not an object.");
-      }
-    } else 
-        System.out.println("This is not an object.");
+          }
+        } else 
+            System.out.println("This is not an object.");
   }
 
   private void talkToNpc(String secondWord) {
@@ -325,7 +328,11 @@ public class Game {
     System.out.println("e.g. There is a paper straw that... enter: take paper straw");
     System.out.println("or e.g. A bookshelf full of books... enter: examine bookshelf");
     System.out.println();
-    System.err.println("If you want to check your inventory, write 'check'");
+    System.out.println("If you want to check your inventory, write 'check'");
+    System.out.println();
+    if(guess.isFoundWep()){
+
+    }
   }
 
   /**
@@ -346,7 +353,9 @@ public class Game {
 
     if (nextRoom == null)
       System.out.println("There is no door!");
-    else if(currentRoom.getExit(direction).isLocked()){
+    else if(currentRoom.getExit(direction).isLocked() && currentRoom.getExit(direction).getKeyId() == null){
+      System.out.println("This room seems to be locked from the inside...");
+    } else if(currentRoom.getExit(direction).isLocked()){
       System.out.println("This room is locked, you have to find the key to unlock it.");
       System.out.println("If you have the key, enter 'use ____ key'");
     } else {

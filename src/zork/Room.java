@@ -31,8 +31,10 @@ public class Room {
 
   public Exit matchKeyID(String keyID, ArrayList<Exit> exits){
     for(Exit exit : exits){
-      if(exit.getKeyId().equals(keyID))
-        return exit;
+      if(exit.getKeyId() != null){
+        if(exit.getKeyId().equals(keyID))
+          return exit;
+      }
     }
     return null;
   }
