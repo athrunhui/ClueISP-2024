@@ -57,7 +57,7 @@ public class Game {
       /*if(name.indexOf("key") > 0){
         Key key = new Key(keyid, name, description)
       } else   */    
-        Item item = new Item(weight, name, open, examine, description, bloody);
+        Item item = new Item(weight, name, open, examine, description, bloody, murWep);
       //}
       Boolean idNThere = Objects.isNull(((JSONObject) itemObj).get("room_id"));
       if(!idNThere){
