@@ -4,7 +4,7 @@
       "id": "Front Step",
       "name": "Front Step",
       "npc":"Peacock",
-      "longDescription": "The front step of the mansion is a quaint entryway adorned with a simple, welcoming doormat that reads 'Welcome.' Potted plants line either side, and the door knocker is shaped like a lion's head, offering a grand yet inviting first impression.",
+      "longDescription": "The front step of the mansion is a quaint entryway adorned with a simple, welcoming doormat that reads 'Welcome.' Potted plants line either side, and the door knocker is shaped like a lion's head, offering a grand yet inviting first impression. Type 'go north' to enter.",
       "shortDescription": "A small, welcoming front step with a doormat.",
       "exits": [
         {
@@ -35,7 +35,7 @@
           "isLocked": true,
           "direction": "Northwest",
           "adjacentRoom": "Bathroom",
-          "keyId": "5678"
+          "keyId": "0429"
         },
         {
           "isLocked": false,
@@ -61,13 +61,17 @@
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Library",
-          "keyId": "7890"
+          "adjacentRoom": "Library"
         },
         {
           "isLocked": false,
           "direction": "Northeast",
           "adjacentRoom": "Billiard Room"
+        },
+        {
+          "isLocked": false,
+          "direction": "Northnortheast",
+          "adjacentRoom": "Conservatory"
         },
         {
           "isLocked": false,
@@ -91,8 +95,7 @@
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Hall",
-          "keyId": "8901"
+          "adjacentRoom": "Hall"
         }
       ]
     },
@@ -111,8 +114,7 @@
         {
           "isLocked": true,
           "direction": "North",
-          "adjacentRoom": "Kitchen",
-          "keyId": "9012"
+          "adjacentRoom": "Kitchen"
         }
       ]
     },
@@ -131,8 +133,7 @@
         {
           "isLocked": true,
           "direction": "West",
-          "adjacentRoom": "Secret Passage to Study",
-          "keyId": "4567"
+          "adjacentRoom": "Secret Passage to Study"
         }
       ]
     },
@@ -178,7 +179,7 @@
           "isLocked": true,
           "direction": "West",
           "adjacentRoom": "Secret Passage to Lounge",
-          "keyId": "3456"
+          "keyId": "8624"
         }
       ]
     },
@@ -223,7 +224,7 @@
           "isLocked": true,
           "direction": "South",
           "adjacentRoom": "Secret Passage to Kitchen",
-          "keyId": "2345"
+          "keyId": "0616"
         }
       ]
     },
@@ -263,6 +264,11 @@
           "isLocked": false,
           "direction": "Northeast",
           "adjacentRoom": "Conservatory"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southwest",
+          "adjacentRoom": "Lounge"
         }
       ]
     },
@@ -272,6 +278,11 @@
       "longDescription": "The passage to the lounge is hidden behind a sliding panel in the wall. It's a tight, shadowy space that provides a quick and secretive route to the lounge. The passage's walls are rough, and the floor creaks softly underfoot, enhancing its hidden nature.",
       "shortDescription": "A hidden passage leading to the lounge.",
       "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northeast",
+          "adjacentRoom": "Conservatory"
+        },
         {
           "isLocked": false,
           "direction": "Southwest",
@@ -289,6 +300,11 @@
           "isLocked": false,
           "direction": "Northwest",
           "adjacentRoom": "Kitchen"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southeast",
+          "adjacentRoom": "Study"
         }
       ]
     },
@@ -298,6 +314,11 @@
       "longDescription": "This secret passage is hidden behind a hinged bookshelf in the library. It's a winding, dim corridor that leads directly to the study, offering a surreptitious way to move between these intellectual havens. The walls are lined with old maps and notes, giving it an air of secret scholarship.",
       "shortDescription": "A hidden passage leading to the study.",
       "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northwest",
+          "adjacentRoom": "Kitchen"
+        },
         {
           "isLocked": false,
           "direction": "Southeast",

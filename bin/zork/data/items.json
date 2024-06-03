@@ -432,17 +432,8 @@
         "isExaminable": "true"
     },
     {
-        "id": "Rug",
-        "name": "Fur Rug",
-        "description": "soft fur rug lays flat on the ground with a lump in the middle...",
-        "room_id": "Study",
-        "weight": "999999", 
-        "isOpenable": "true",
-        "isExaminable": "true"
-    },
-    {
         "id": "Plant",
-        "name": "Big Leafy Plant",
+        "name": "Plant",
         "description": "big leafy plant rests in the middle of the room, there is something shiny in the dirt...",
         "room_id": "Conservatory",
         "weight": "999999", 
@@ -451,7 +442,7 @@
     },
     {
         "id": "Desk",
-        "name": "Desk With Drawers",
+        "name": "Desk",
         "description": "large mahogany desk sits at the back of the room with a drawer slightly ajar...",
         "room_id": "Study",
         "weight": "999999", 
@@ -461,7 +452,7 @@
     {
         "id": "Key1",
         "name": "Gold Key",
-        "description": "golden key",
+        "description": "gold key",
         "item_id" :"Plant",
         "weight": "1", 
         "isExaminable": "true",
@@ -488,15 +479,8 @@
     {
         "id": "Blood",
         "name": "Trail of Blood",
-        "description": "A trail of blood drops which you missed lead to ",
+        "description": "trail of blood drops!!! This is the room where the murder took place!!!",
         "room_id": null,
-        "weight": "1", 
-        "isExaminable": "true"
-    },{
-        "id": "Bloody",
-        "name": "Bloodstains",
-        "description": "A bloodstain on ",
-        "item_id": null,
         "weight": "1", 
         "isExaminable": "true"
     }
