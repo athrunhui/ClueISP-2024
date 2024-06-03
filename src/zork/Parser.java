@@ -31,7 +31,8 @@ public class Parser {
       for (int i = 1; i < words.length; i++){
         word2 += words[i] + " ";
       }
-      word2 = word2.trim();
+      if(word2 != null && !word2.equals(""))
+        word2 = word2.trim();
 
     if (commands.isCommand(word1))
       return new Command(word1, word2);

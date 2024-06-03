@@ -7,6 +7,7 @@ public class Room {
   private String roomName;
   private String longDescription;
   private String shortDescription;
+  private boolean isLocked;
   private ArrayList<Exit> exits;
   private String npc;
 
@@ -104,6 +105,42 @@ public class Room {
     return null;
   }
 
+  public Exit getExit(String direction){
+    try {
+      for (Exit exit : exits) {
+
+        if (exit.getDirection().equalsIgnoreCase(direction)) {
+          return exit;
+        }
+
+      }
+    } catch (IllegalArgumentException ex) {
+      System.out.println(direction + " is not a valid direction.");
+      return null;
+    }
+
+    System.out.println(direction + " is not a valid direction.");
+    return null;
+  }
+
+  public Exit findExit(String name){
+    try {
+      for (Exit exit : exits) {
+
+        if (exit.getAdjacentRoom().toLowerCase().equals(name.toLowerCase())) {
+          return exit;
+        }
+
+      }
+    } catch (IllegalArgumentException ex) {
+      System.out.println(name + " is not a valid name.");
+      return null;
+    }
+
+    System.out.println(name + " is not a valid name.");
+    return null;
+  }
+
   /*
    * private int getDirectionIndex(String direction) { int dirIndex = 0; for
    * (String dir : directions) { if (dir.equals(direction)) return dirIndex; else
@@ -135,7 +172,15 @@ public class Room {
     this.shortDescription = description;
   }
 
-public Inventory getInventory() {
-    return inventory;
-}
+  public boolean isLocked() {
+    return isLocked;
+  }
+
+  public void setLocked(boolean isLocked) {
+    this.isLocked = isLocked;
+  }
+
+  public Inventory getInventory() {
+      return inventory;
+  }
 }

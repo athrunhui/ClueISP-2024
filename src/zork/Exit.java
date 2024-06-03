@@ -12,12 +12,12 @@ public class Exit extends OpenableObject {
     this.direction = direction;
     this.adjacentRoom = adjacentRoom;
   }
-
+  /*
   public Exit(String direction, String adjacentRoom, boolean isLocked, String keyId, Boolean isOpen) {
     super(isLocked, keyId, isOpen);
     this.direction = direction;
     this.adjacentRoom = adjacentRoom;
-  }
+  }*/
 
   public Exit(String direction, String adjacentRoom) {
     this.direction = direction;
@@ -38,6 +38,20 @@ public class Exit extends OpenableObject {
 
   public void setAdjacentRoom(String adjacentRoom) {
     this.adjacentRoom = adjacentRoom;
+  }
+
+  public boolean isLocked(){
+    return super.isLocked();
+  }
+
+  public void setLocked(boolean isLocked){
+    super.setLocked(isLocked); 
+  }
+
+  public boolean checkKeyId(String keyid){
+    if(super.getKeyId().equals(keyid))
+      return true;
+    return false;
   }
 
 }

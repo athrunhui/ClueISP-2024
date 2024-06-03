@@ -2,7 +2,7 @@ package zork;
 
 public class test {
     public static void main(String[] args) {
-        Room currentRoom = new Room();
+        /*Room currentRoom = new Room();
         currentRoom.setRoomName("Front Step");
         currentRoom.setShortDescription("ooga booga");
         currentRoom.setLongDescription("monkey");
@@ -12,6 +12,9 @@ public class test {
        /*  currentRoom.getInventory().addItem(monkey);
         currentRoom.getInventory().addItem(wrench);
         currentRoom.getInventory().printItems();*/
+
+        Exit exit = new Exit("North", "This", true, "1234");
+        System.out.println(exit.isLocked());
 
     }
 }

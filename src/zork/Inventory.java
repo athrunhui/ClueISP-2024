@@ -23,7 +23,7 @@ public class Inventory {
 
   public Item getItem(String item){
     for(Item a : items){
-      if(a.getName().equals(item))
+      if(a.getName().toLowerCase().equals(item.toLowerCase()))
         return a;
     }
     return null;
@@ -46,14 +46,27 @@ public class Inventory {
         if(i == 0)
           System.out.println("There is a " + items.get(i).getDescription() + ".");
         else  
-          System.out.println("A" + items.get(i).getDescription() + ".");
+          System.out.println("A " + items.get(i).getDescription() + ".");
+    }
+  }
+  }
+
+  public void printPlayerItems(){ // done - prints lines of items in the player's inventory
+    if(items.size() == 0 || items.get(0).equals(null)){
+      System.out.println("You don't have anything in your inventory.");
+    } else{
+    for(int i = 0; i < items.size(); i++){
+        if(i == 0)
+          System.out.println("You have a " + items.get(i).getDescription() + ".");
+        else  
+          System.out.println("A " + items.get(i).getDescription() + ".");
     }
   }
   }
 
   public boolean findItem(String command){
     for(Item a : items){
-      if(command.equals(a))
+      if(command.equals(a.getName().toLowerCase()))
         return true;
     }
     return false;

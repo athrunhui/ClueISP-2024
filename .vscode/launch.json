@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "zork.test",
+            "projectName": "ClueISP-2024_d1d49a6b"
+        },
+        {
+            "type": "java",
+            "name": "Zork",
+            "request": "launch",
+            "mainClass": "zork.Zork",
+            "projectName": "ClueISP-2024_d1d49a6b"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

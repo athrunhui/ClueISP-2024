@@ -3,3 +3,13 @@ bin/zork/Game.class
 bin/zork/Item.class
 bin/zork/Key.class
 bin/zork/randomBloody.class
+bin/zork/character.class
+bin/zork/CommandWords.class
+bin/zork/Exit.class
+bin/zork/Game.class
+bin/zork/guess.class
+bin/zork/Inventory.class
+bin/zork/NpcConversation.class
+bin/zork/Parser.class
+bin/zork/Room.class
+bin/zork/test.class

@@ -18,6 +18,7 @@ public class Game {
 
   private Parser parser;
   private static Room currentRoom;
+  private character player = new character("Player");
 
   /**
    * Create the game and initialise its internal map.
@@ -54,7 +55,7 @@ public class Game {
       String description = (String)((JSONObject) itemObj).get("description");
       Boolean murWep = Boolean.parseBoolean((String)((JSONObject) itemObj).get("murderWeapon"));
       String keyid = (String)((JSONObject) itemObj).get("keyid");
-      if(name.indexOf("key") > 0){
+      if(name.indexOf("Key") > 0){
         Key key = new Key(keyid, name, description);
         String itemId = (String)((JSONObject) itemObj).get("item_id");
         itemMap.put(itemId, key);
@@ -67,10 +68,14 @@ public class Game {
         } else if(murWep){
           String roomid = randRoom.setRoomid();
           roomMap.get(roomid).getInventory().addItem(item);
-        } else if(id.equals("Blood")) {
+        } else if(id.equals("Bloody")) {
           String itemId = randBlood.getBloodyItem();
           itemMap.get(itemId).getInventory().addItem(item);
-        } else if(id.equals("Bloody")){}
+        } else if(id.equals("Blood")){
+          randomRoom random = new randomRoom();
+          String roomId = random.setRoomid();
+          roomMap.get(roomId).getInventory().addItem(item);
+        }
         else {
           String itemId = (String)((JSONObject) itemObj).get("item_id");
           itemMap.get(itemId).getInventory().addItem(item);
@@ -94,7 +99,7 @@ public class Game {
       String roomId = (String) ((JSONObject) roomObj).get("id");
       String roomShortDescription = (String) ((JSONObject) roomObj).get("shortDescription");
       String roomLongDescription = (String) ((JSONObject) roomObj).get("longDescription");
-      
+
       room.setShortDescription(roomShortDescription);
       room.setLongDescription(roomLongDescription);
       room.setRoomName(roomName);
@@ -106,8 +111,7 @@ public class Game {
         String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
         String keyId = (String) ((JSONObject) exitObj).get("keyId");
         Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-        Boolean isOpen = (Boolean) ((JSONObject) exitObj).get("isOpen");
-        Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
+        Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId);
         exits.add(exit); 
       }
       room.setExits(exits); // set exits for room
@@ -175,66 +179,89 @@ public class Game {
       else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
-      System.out.println("Do you really think you should be eating at a time like this?");
+        System.out.println("Do you really think you should be eating at a time like this?");
     } else if (commandWord.equals("look"))
-    currentRoom.getInventory().printItems();
-    else if(commandWord.equals("examine")){
+        currentRoom.getInventory().printItems();
+      else if(commandWord.equals("examine")){
       if (!command.hasSecondWord()){
         System.out.println("What do you want to examine?");
         return false;
       }else{
         examine(command.getSecondWord());
-      }
-      
+      }      
+    } else if(commandWord.equals("check")) {
+        player.getInventory().printPlayerItems();
+    } else if (commandWord.equals("talk")){
+      if (!command.hasSecondWord()){
+        System.out.println("Who do you want to talk to?");
+          return false;
+      } else
+        talkToNpc(command.getSecondWord());
     }
-    else if (commandWord.equals("talk"))
-    talkToNpc(command.getSecondWord());
+      else if (commandWord.equals("take")){
+        if (!command.hasSecondWord()){
+          System.out.println("What do you want to take?");
+          return false;
+        } else{
+          Item pickUp = currentRoom.getInventory().getItem(command.getSecondWord().toLowerCase());
+          if (pickUp == null)
+            System.out.println("This is not an item.");
+          else
+            if(player.getInventory().addItem(pickUp))
+              System.out.println("You have picked up the " + pickUp.getName());
+        }
+      }
     return false;
   }
   // implementations of user commands:
 
   private void examine(String secondWord){
-    if(currentRoom.getInventory().findItem(secondWord)){
-      Item a = currentRoom.getInventory().getItem(secondWord);
-      System.out.println(a.getDescription());
+    if(currentRoom.getInventory().findItem(secondWord.toLowerCase())){
+      Item a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
+      System.out.println("You see a " + a.getDescription());
       if(a.isBloody()){
         System.out.println("Upon further inspection of the item, you find that its bloody!!!" +
         "This is the weapon used for the murder!");
       } else if(a.isMurWep()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
+      } else if(a.isOpenable()){
+          if(a.getName().equals("Sherlock Holmes Book"))
+            System.out.println("Should you really be reading now?");
+          else if(a.getName().equals("Bookshelf")) {
+            System.out.println("You pull out the book and hear that the door to the library has opened.");
+            currentRoom.findExit("library").setLocked(false);
+          } else if(a.getName().equals("Painting")){
+            System.out.println("You fix the angled painting and a silver key drops out. You pick up the key.");
+            player.getInventory().addItem(itemMap.get("KeyB"));
+          }
+
+
+      } else {
+        System.out.println("This is not an object.");
       }
-    }
+    } else 
+        System.out.println("This is not an object.");
   }
 
   private void talkToNpc(String secondWord) {
+    NpcConversation talk = new NpcConversation(secondWord);
     if(secondWord.equalsIgnoreCase("Mrs. Peacock") || secondWord.equalsIgnoreCase("peacock") || currentRoom.getNpc().equals("Peacock")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToPeacock(parser);
+      talk.talkToPeacock(parser);
     }
-
-    if(secondWord.equalsIgnoreCase("Mr. Green") || secondWord.equalsIgnoreCase("green")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToGreen(parser);
+    else if(secondWord.equalsIgnoreCase("Mr. Green") || secondWord.equalsIgnoreCase("green")){
+      talk.talkToGreen(parser);
     }
-
-    if(secondWord.equalsIgnoreCase("Mr. Scarlet") || secondWord.equalsIgnoreCase("scarlet")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToScarlet(parser);
+    else if(secondWord.equalsIgnoreCase("Mr. Scarlet") || secondWord.equalsIgnoreCase("scarlet")){ 
+      talk.talkToScarlet(parser);
     }
-
-    if(secondWord.equalsIgnoreCase("Prof. Plum") || secondWord.equalsIgnoreCase("plum")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToPlum(parser);
+    else if(secondWord.equalsIgnoreCase("Prof. Plum") || secondWord.equalsIgnoreCase("plum")){ 
+      talk.talkToPlum(parser);
     }
-
-    if(secondWord.equalsIgnoreCase("Col. Mustard") || secondWord.equalsIgnoreCase("mustard")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToMustard(parser);
+    else if(secondWord.equalsIgnoreCase("Col. Mustard") || secondWord.equalsIgnoreCase("mustard")){ 
+      talk.talkToMustard(parser);
     }
-
-    if(secondWord.equalsIgnoreCase("Mrs. White") || secondWord.equalsIgnoreCase("white")){
-      NpcConversation peacock = new NpcConversation(secondWord);
-      peacock.talkToWhite(parser);
+    else if(secondWord.equalsIgnoreCase("Mrs. White") || secondWord.equalsIgnoreCase("white")){ 
+      talk.talkToWhite(parser);
     }
   }
 
@@ -248,6 +275,12 @@ public class Game {
     System.out.println();
     System.out.println("Your command words are:");
     parser.showCommands();
+    System.out.println("If you want to take or examine something, write the first few words in the sentence given");
+    System.out.println("by the look command after the a.");
+    System.out.println("e.g. There is a paper straw that... enter: take paper straw");
+    System.out.println("or e.g. A bookshelf full of books... enter: examine bookshelf");
+    System.out.println();
+    System.err.println("If you want to check your inventory, write 'check'");
   }
 
   /**
@@ -268,7 +301,9 @@ public class Game {
 
     if (nextRoom == null)
       System.out.println("There is no door!");
-    else {
+    else if(currentRoom.getExit(direction).isLocked()){
+      System.out.println("This room is locked, you have to find the key to unlock it.");
+    } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
     }

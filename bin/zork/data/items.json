@@ -3,7 +3,7 @@
     {
         "id": "straw",  
         "name": "paper straw",
-        "description": "a paper straw that will likely get soggy as soon as it enters a liquid",
+        "description": "paper straw that will likely get soggy as soon as it enters a liquid",
         "room_id": "Hall",
         "weight": "5", 
         "isOpenable": "false",
@@ -33,7 +33,7 @@
     {
         "id": "Chess Board",
         "name": "wooden chess board",
-        "description": "A chess board... you can play with friends or by yourself if you're lonely.",
+        "description": "chess board... you can play with friends or by yourself if you're lonely.",
         "room_id": "Lounge",
         "weight": "15", 
         "isOpenable": "false"
@@ -41,7 +41,7 @@
     {
         "id": "TV",
         "name": "television",
-        "description": "A flat-screen display mounted on the wall or placed on a stand, used for entertainment.",
+        "description": "flat-screen display mounted on the wall or placed on a stand, used for entertainment.",
         "room_id": "Lounge",
         "weight": "50", 
         "isOpenable": "false",
@@ -52,7 +52,7 @@
     {
         "id": "Table",
         "name": "Dining Table",
-        "description": "A long table where meals are served, made with high quality wood vaneer.",
+        "description": "long table where meals are served, made with high quality wood vaneer.",
         "room_id": "Dining Room",
         "weight": "80", 
         "isOpenable": "false",
@@ -63,7 +63,7 @@
     {
         "id": "Spaghetti",
         "name": "Strand of Spaghetti",
-        "description": "A lone strand of spaghetti, blanketed with a layer of marinara sauce and bits of parmesan.",
+        "description": "lone strand of spaghetti, blanketed with a layer of marinara sauce and bits of parmesan.",
         "room_id": "Dining Room",
         "weight": "5", 
         "isOpenable": "false",
@@ -73,8 +73,8 @@
     },
     {
         "id": "Lamp",
-        "name": "Grandma's Lamp",
-        "description": "An old crusty lamp, looks like it could have belonged to your grandma.",
+        "name": "Crusty Lamp",
+        "description": "crusty lamp, looks like it could have belonged to your grandma.",
         "room_id": "Dining Room",
         "weight": "20", 
         "isOpenable": "false",
@@ -85,7 +85,7 @@
     {
         "id": "Refrigerator",
         "name": "refrigerator",
-        "description": "A large appliance used to slow down bacterial growth.",
+        "description": "large appliance used to slow down bacterial growth.",
         "room_id": "Kitchen",
         "weight": "100", 
         "isOpenable": "false",
@@ -96,7 +96,7 @@
     {
         "id": "Spatula",
         "name": "spatula",
-        "description": "A spatula; upon inspection, it's made of silicone, too flimsy to kill anyone with...",
+        "description": "spatula; upon inspection, it's made of silicone, too flimsy to kill anyone with...",
         "room_id": "Kitchen",
         "weight": "10", 
         "isOpenable": "false",
@@ -107,7 +107,7 @@
     {
         "id": "Cereal",
         "name": "cereal",
-        "description": "A box of froot loops! Opened, half-eaten.",
+        "description": "box of froot loops! Opened, half-eaten.",
         "room_id": "Kitchen",
         "weight": "15", 
         "isOpenable": "false",
@@ -118,7 +118,7 @@
     {
         "id": "Garbage Can",
         "name": "garbage can",
-        "description": "A small garbage can; I don't think we should look inside. ",
+        "description": "small garbage can; I don't think we should look inside. ",
         "room_id": "Bathroom",
         "weight": "20", 
         "isOpenable": "false",
@@ -129,7 +129,7 @@
     {
         "id": "Moisturizer",
         "name": "moisturizer",
-        "description": "A huge container of CeraVe moisturizer; someone's got dry skin...",
+        "description": "huge container of CeraVe moisturizer; someone's got dry skin...",
         "room_id": "Bathroom",
         "weight": "30", 
         "isOpenable": "false",
@@ -140,7 +140,7 @@
     {
         "id": "Toothbrush",
         "name": "toothbrush",
-        "description": "A toothbrush left in pristine condition. It's either brand new or someone doesn't clean their teeth...",
+        "description": "toothbrush left in pristine condition. It's either brand new or someone doesn't clean their teeth...",
         "room_id": "Bathroom",
         "weight": "5", 
         "isOpenable": "false",
@@ -151,7 +151,7 @@
     {
         "id": "Shower Cap",
         "name": "showercap",
-        "description": "A showercap. A cap you put on in the shower.",
+        "description": "showercap. A cap you put on in the shower.",
         "room_id": "Bathroom",
         "weight": "1", 
         "isOpenable": "false",
@@ -162,7 +162,7 @@
     {
         "id": "Grand Piano",
         "name": "grand piano",
-        "description": "A beautiful grand piano, seems to be frequently used.",
+        "description": "beautiful grand piano, seems to be frequently used.",
         "room_id": "Ballroom",
         "weight": "200", 
         "isOpenable": "false",
@@ -182,9 +182,9 @@
         "isBloody": null
     },
     {
-        "id": "Painting",
-        "name": "painting",
-        "description": "A canvas with a couple scribbles here and there. Modern art.",
+        "id": "PaintingM",
+        "name": "canvas",
+        "description": "canvas with a couple scribbles here and there. Modern art.",
         "room_id": "Ballroom",
         "weight": "70", 
         "isOpenable": "false",
@@ -195,7 +195,7 @@
     {
         "id": "Cactus",
         "name": "cactus",
-        "description": "A cactus plant. They really do have every type of plant in here huh?",
+        "description": "cactus plant. They really do have every type of plant in here huh?",
         "room_id": "Conservatory",
         "weight": "20", 
         "isOpenable": "false",
@@ -206,7 +206,7 @@
     {
         "id": "Armchair",
         "name": "armchair",
-        "description": "A leather brown armchair; feels soft to sit on.",
+        "description": "leather brown armchair; feels soft to sit on.",
         "room_id": "Conservatory",
         "weight": "80", 
         "isOpenable": "false",
@@ -217,7 +217,7 @@
     {
         "id": "Lantern",
         "name": "lantern",
-        "description": "An old portable lantern that's perfect for some late night reading.",
+        "description": "portable lantern that's perfect for some late night reading.",
         "room_id": "Conservatory",
         "weight": "10", 
         "isOpenable": "false",
@@ -228,7 +228,7 @@
     {
         "id": "Pool Table",
         "name": "pool table",
-        "description": "A pool table with six pockets; can be used to play pool or billiards.",
+        "description": "pool table with six pockets; can be used to play pool or billiards.",
         "room_id": "Billiard Room",
         "weight": "100", 
         "isOpenable": "false",
@@ -239,7 +239,7 @@
     {
         "id": "Pool Stick",
         "name": "pool stick",
-        "description": "A stick used to play pool; beside it lies chalk for the tip.",
+        "description": "stick used to play pool; beside it lies chalk for the tip.",
         "room_id": "Billiard Room",
         "weight": "20", 
         "isOpenable": "false",
@@ -250,7 +250,7 @@
     {
         "id": "Ping Pong Table",
         "name": "ping pong table",
-        "description": "A table for ping pong. A pair of racquets face each other and balls are scattered around the room.",
+        "description": "table for ping pong. A pair of racquets face each other and balls are scattered around the room.",
         "room_id": "Billiard Room",
         "weight": "100", 
         "isOpenable": "false",
@@ -260,8 +260,8 @@
     },
     {
         "id": "Lamp B",
-        "name": "Grandma's Lamp",
-        "description": "An old crusty lamp, looks like it could have belonged to your grandma.",
+        "name": "Old Crusty Lamp",
+        "description": "old crusty lamp, looks like it could have belonged to your grandma.",
         "room_id": "Library",
         "weight": "20", 
         "isOpenable": "false",
@@ -272,7 +272,7 @@
     {
         "id": "Ottoman",
         "name": "ottoman",
-        "description": "A leather ottoman. Paired with the leather armchair, it makes for a comfortable reading spot.",
+        "description": "leather ottoman. Paired with the leather armchair, it makes for a comfortable reading spot.",
         "room_id": "Library",
         "weight": "35", 
         "isOpenable": "false",
@@ -283,7 +283,7 @@
     {
         "id": "Armchair B",
         "name": "armchair",
-        "description": "A leather brown armchair; feels soft to sit on.",
+        "description": "leather brown armchair; feels soft to sit on.",
         "room_id": "Library",
         "weight": "80", 
         "isOpenable": "false",
@@ -293,8 +293,8 @@
     },
     {
         "id": "Lamp C",
-        "name": "Study Lamp",
-        "description": "An old crusty lamp, looks like it could have belonged to your grandma.",
+        "name": "Lamp",
+        "description": "lamp used for studying that's covered with rust, looks like it could have belonged to your grandma.",
         "room_id": "Study",
         "weight": "20", 
         "isOpenable": "false",
@@ -305,7 +305,7 @@
     {
         "id": "Journal",
         "name": "journal",
-        "description": "A private journal. I wonder what's in it...",
+        "description": "private journal. I wonder what's in it...",
         "room_id": "Study",
         "weight": "15", 
         "isOpenable": "false",
@@ -416,7 +416,7 @@
     {
         "id": "Shelf",
         "name": "Bookshelf",
-        "description": "bookshelf full of books sits along the wall",
+        "description": "bookshelf full of books sits along the wall, a book seems out of order...",
         "room_id": "Hall",
         "weight": "999999", 
         "isOpenable": "true",
@@ -424,8 +424,8 @@
     },
     {
         "id": "Painting",
-        "name": "Painting of a Mountain",
-        "description": "painting of Mount Everest hangs on the wall",
+        "name": "Painting",
+        "description": "painting of Mount Everest hangs on the wall, it hangs slightly angled...",
         "room_id": "Hall",
         "weight": "999999", 
         "isOpenable": "true",
