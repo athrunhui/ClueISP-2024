@@ -39,10 +39,11 @@ public class Game {
     Path path = Path.of(fileName); // file name i pass in to know where i read it from
     String jsonString = Files.readString(path); // turn the jsonfile into a massive string 
     JSONParser parser = new JSONParser();
-    JSONObject j2son = (JSONObject) parser.parse(jsonString); // parse to make it one big object
+    // JSONObject j2son = (JSONObject) parser.parse(jsonString); // parse to make it one big object
     JSONObject json = (JSONObject) parser.parse(jsonString); // parse to make it one big object
     randomRoom randRoom = new randomRoom();
     randomBloody randBlood = new randomBloody();
+    String bloodyRoom = "";
 
     JSONArray jsonItems = (JSONArray) json.get("items");
 
@@ -76,6 +77,7 @@ public class Game {
         } else if(id.equals("Blood")){
           randomRoom random = new randomRoom();
           String roomId = random.setRoomid();
+          bloodyRoom = roomId;
           roomMap.get(roomId).getInventory().addItem(item);
         } else {
           String itemId = (String)((JSONObject) itemObj).get("item_id");
@@ -84,6 +86,8 @@ public class Game {
       itemMap.put(id, item);
       }
     }
+    guess.setMurWep(itemMap.get(randBlood.getBloodyItem()));
+    guess.setMurRoom(roomMap.get(bloodyRoom));
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -261,9 +265,7 @@ public class Game {
       } else if(a.isMurWep()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
       } else if(a.isOpenable()){
-          if(a.getName().equals("Sherlock Holmes Book"))
-            System.out.println("Should you really be reading now?");
-          else if(a.getName().equals("journal"))
+          if(a.getName().equals("Sherlock Holmes Book") || a.getName().equals("journal"))
             System.out.println("Should you really be reading now?");
           else if(a.getName().equals("Bookshelf")) {
             System.out.println("You pull out the book and hear that the door to the library has opened.");
@@ -330,9 +332,20 @@ public class Game {
     System.out.println();
     System.out.println("If you want to check your inventory, write 'check'");
     System.out.println();
-    if(guess.isFoundWep()){
-
-    }
+    System.out.print("So far, you ");
+    if(guess.isWepFound() && guess.isRoomFound()){
+      System.out.print("know that the murder weapon used is the " + guess.getMurWep().getName());
+      System.out.print(" and the room the murder took place in is the " + guess.getMurRoom().getRoomName());
+    } else if(guess.isWepFound())
+      System.out.print("know that the murder weapon used is the " + guess.getMurWep().getName());
+    else if(guess.isRoomFound())
+      System.out.print("know that the room the murder took place in is the" + guess.getMurRoom().getRoomName());
+    else
+      System.out.print("don't know what room the murder took place in");
+    System.out.println(".");
+    System.out.println("You have to find who committed the murder on your own...");
+    System.out.println("To make your final guess, enter guess then finalize your guess of the " +
+                       "weapon, room, and person that committed the murder");
   }
 
   /**

@@ -1,65 +1,45 @@
 package zork;
 
 public class guess {
-    private static Room murRoom;
-    private static boolean foundRoom = false;
+    private Room murRoom;
+    private boolean room = false;
 
-    private static Item murWep;
-    public static boolean foundWep = false;
-
-    private static String murPers;
-    private static boolean foundPers = false;
+    private Item murWep;
+    public boolean wep = false;
 
     //  rooms
 
-    public static Room getMurRoom() {
+    public Room getMurRoom() {
         return murRoom;
     }
 
-    public static void setMurRoom(Room murRoom) {
-        guess.murRoom = murRoom;
+    public void setMurRoom(Room murRoom) {
+        this.murRoom = murRoom;
     }
 
-    public static boolean isFoundRoom() {
-        return foundRoom;
+    public boolean isRoomFound() {
+        return room;
     }
 
-    public static void setFoundRoom(boolean foundRoom) {
-        guess.foundRoom = foundRoom;
+    public  void setRoomFound(boolean foundRoom) {
+        this.room = foundRoom;
     }
 
     //  weapons
-    public static Item getMurWep() {
+    public  Item getMurWep() {
         return murWep;
     }
     
-    public static void setMurWep(Item murWep) {
-        guess.murWep = murWep;
+    public  void setMurWep(Item murWep) {
+        this.murWep = murWep;
     }
 
-    public static boolean isFoundWep() {
-        return foundWep;
+    public  boolean isWepFound() {
+        return wep;
     }
 
-    public static void setFoundWep(boolean foundWep) {
-        guess.foundWep = foundWep;
-    }
-
-    //  person
-    public static String getMurPers() {
-        return murPers;
-    }
-
-    public static void setMurPers(String murPers) {
-        guess.murPers = murPers;
-    }
-
-    public static boolean isFoundPers() {
-        return foundPers;
-    }
-
-    public static void setFoundPers(boolean foundPers) {
-        guess.foundPers = foundPers;
+    public  void setWepFound(boolean foundWep) {
+        this.wep = foundWep;
     }
     
 }
