@@ -259,6 +259,7 @@ public class Game {
       guess.guessPers(in);
       System.out.println("Are you sure these are the guesses you want to make?");
       if(yesOrNo())
+        return false;
       if(guess.checkCorrect()){
         /*
          * 
