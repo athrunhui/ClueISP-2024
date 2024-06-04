@@ -21,7 +21,6 @@ public class randomBloody {
         items.add("Letter Opener");
         items.add("Golf Club");
         itemNumber = (int)(Math.random()*items.size());
-        zork.guess.setWeapons(items);
     }
 
     public Boolean setBloodyItem(String item){

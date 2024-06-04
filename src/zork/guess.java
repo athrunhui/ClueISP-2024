@@ -21,26 +21,91 @@ public class guess {
     private String guessR;
     private String guessP;
 
-    public boolean guessWep(Scanner in){
+    public void guessWep(Scanner in){
         System.out.print("\u001B[?25l");  // Hide the cursor
         boolean isValid = false;
-        String result = "";
         while(!isValid){
-            System.out.print("(y/n): ");
+            System.out.println("What weapon do you think was used in the murder?");
             try{
-                result = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
-                if ((result.equals("n"))||(result.equals("y"))){
-                    isValid = true; //if it is y or n continue to line 61
+                guessW = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
+                for(String a : weapons){
+                    if(guessW.equals(a.toLowerCase()))
+                        isValid = true;
                 }
+                if(!isValid)
+                    System.out.println("Please enter a weapon.");
             }catch(InputMismatchException badThing){
-                System.out.println("Please enter y or n."); //if it is not y or n, prompt again
+                System.out.println("Please enter a weapon."); //if it is not y or n, prompt again
             }
         }
-        if (result.equals("n")){ //if answer is n end game, otherwise play new game
-            System.out.println("Thanks for playing.");
+    }
+
+    public void guessRoom(Scanner in){
+        System.out.print("\u001B[?25l");  // Hide the cursor
+        boolean isValid = false;
+        while(!isValid){
+            System.out.println("What room do you think the murder occured in?");
+            try{
+                guessR = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
+                for(String a : rooms){
+                    if(guessR.equals(a.toLowerCase()))
+                        isValid = true;
+                }
+                if(!isValid)
+                    System.out.println("Please enter a room.");
+            }catch(InputMismatchException badThing){
+                System.out.println("Please enter a room."); //if it is not y or n, prompt again
+            }
+        }
+    }
+
+    public void guessPers(Scanner in){
+        System.out.print("\u001B[?25l");  // Hide the cursor
+        boolean isValid = false;
+        while(!isValid){
+            System.out.println("Who do you think committed the murder?");
+            try{
+                guessP = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
+                for(String a : people){
+                    if(guessP.equals(a.toLowerCase()))
+                        isValid = true;
+                }
+                if(!isValid)
+                    System.out.println("Please enter a person.");
+            }catch(InputMismatchException badThing){
+                System.out.println("Please enter a person."); //if it is not y or n, prompt again
+            }
+        }
+    }
+
+    public boolean checkCorrect(){
+        int i = 0;
+        if(guessW.equals(murWep.getName().toLowerCase())){
+            System.out.println("You got the murder weapon right! :)");
+            i++;
+        } else   
+            System.out.println("You got the murder weapon wrong... :( TT");
+
+        if(guessR.equals(murRoom.getRoomName().toLowerCase())){
+            System.out.println("You got the room the murder took place in right! :)");
+            i++;
+        } else 
+            System.out.println("You got the room the murder took place in wrong... :( TT");
+
+        if(guessP.equals(murPers.toLowerCase())){
+            System.out.println("You got the person who commmitted the murder right! :)");
+            i++;
+        } else 
+            System.out.println("You got the person who committed the murder wrong... :( TT");
+        
+        if(i == 3){
+            System.out.println("You got them all right! You solved the mystery! Congratulations!!!");
             return true;
-        }  
-        return false;
+        } else {
+            System.out.println("You got " + i + "/3 correct :(. You did not solve the mystery.");
+            printCorrect();
+            return false;
+        }
     }
     public void printCorrect(){
         System.out.println("The murder weapon used was the " + murWep.getName() + 

@@ -25,8 +25,8 @@ public class Game {
   private character player = new character("Player");
   private NpcConversation talk;
   private guess guess = new guess();
-  private guess ooga = new guess();
 
+  private ArrayList<String> weapons = new ArrayList<String>();
   private ArrayList<String> rooms = new ArrayList<String>();
   private String bloodyRoom = "";
   /**
@@ -37,8 +37,7 @@ public class Game {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
       talk = new NpcConversation(bloodyRoom);
-      ooga.printCorrect();
-      ooga.printLists();
+      guess.printCorrect();
       currentRoom = roomMap.get("Front Step");
     } catch (Exception e) {
       e.printStackTrace();
@@ -94,10 +93,12 @@ public class Game {
           itemMap.get(itemId).getInventory().addItem(item);
         }      
       itemMap.put(id, item);
+      weapons.add(name);
       }
     }
     zork.guess.setMurWep(itemMap.get(randBlood.getBloodyItem()));
     zork.guess.setMurRoom(roomMap.get(bloodyRoom));
+    zork.guess.setWeapons(weapons);
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -253,6 +254,22 @@ public class Game {
       System.out.println("Are you sure you want to make a guess?");
       if(yesOrNo())
         return false;
+      guess.guessWep(in);
+      guess.guessRoom(in);
+      guess.guessPers(in);
+      System.out.println("Are you sure these are the guesses you want to make?");
+      if(yesOrNo())
+      if(guess.checkCorrect()){
+        /*
+         * 
+         * JULIET PUT WIN LOSE DIALOGUE HERE
+         * GUESS.CHECKCORRECT WILL RETURN TRUE IF ALL 3 CORRECT AND FALSE IF NOT ALL 3 CORRECT
+         * RETURN TRUE IN GAME CLASS TO END GAME
+         * GUESS.CHECKCORRECT WILL PRINT THE ANSWER IF THEY LOSE
+         * 
+         * 
+         */
+      }
 
     }
     return false;
@@ -293,8 +310,10 @@ public class Game {
         open.setLocked(false);
       }
       else
-        System.out.println("Your key cannot open any rooms. :(");      
-    } else {
+        System.out.println("Your key cannot open any rooms right now. :(");      
+    } else if(currentRoom.getRoomName().indexOf("Secret") >= 0)
+        System.out.println("You cannot put any items in the secret passageways"); 
+      else {
       System.out.println("You place the " + item.getName() + " in the " + currentRoom.getRoomName());
       currentRoom.getInventory().addItem(player.getInventory().removeItem(item.getName(), Integer.MAX_VALUE));
     }
