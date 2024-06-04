@@ -26,6 +26,13 @@ public class guess {
         boolean isValid = false;
         while(!isValid){
             System.out.println("What weapon do you think was used in the murder?");
+            System.out.println("Weapons: ");
+            for(String a : weapons){
+                if(a.equals(weapons.get(weapons.size()-1)))
+                  System.out.println(a + ".");
+                else
+                  System.out.print(a + ", ");
+            }
             try{
                 guessW = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
                 for(String a : weapons){
@@ -45,6 +52,13 @@ public class guess {
         boolean isValid = false;
         while(!isValid){
             System.out.println("What room do you think the murder occured in?");
+            System.out.println("Rooms: ");
+            for(String b : rooms){
+                if(b.equals(rooms.get(rooms.size()-1)))
+                  System.out.println(b + ".");
+                else
+                  System.out.print(b + ", ");
+            }
             try{
                 guessR = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
                 for(String a : rooms){
@@ -64,6 +78,12 @@ public class guess {
         boolean isValid = false;
         while(!isValid){
             System.out.println("Who do you think committed the murder?");
+            System.out.println("People: ");
+            for(String c : people)
+              if(c.equals(people.get(people.size()-1)))
+                  System.out.println(c + ".");
+              else    
+                  System.out.print(c + ", ");
             try{
                 guessP = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
                 for(String a : people){

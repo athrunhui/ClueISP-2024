@@ -83,9 +83,10 @@ public class Inventory {
         if(temp.getWeight() > weight){
           System.out.println("There is no room to add the item.");
           return null;
+        } else {
+          items.remove(i);
+          return temp;
         }
-        items.remove(i);
-        return temp;
       }
     }
     System.out.println("This " + item + " is not there.");
