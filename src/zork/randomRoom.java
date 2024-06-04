@@ -8,7 +8,6 @@ public class randomRoom {
 
     public randomRoom(){
         rooms = new ArrayList<>();
-        rooms.add("Kitchen");
         rooms.add("Lounge");
         rooms.add("Dining Room");
         rooms.add("Bathroom");

@@ -1,13 +1,56 @@
 package zork;
 
+import java.util.ArrayList;
+
 public class NpcConversation {
-    private String Npc;
-    private static randomRoom randRoom = new randomRoom();
+    private randomRoom randRoom = new randomRoom();
+    private ArrayList<String> rooms = new ArrayList<String>();
+    private String[] setRoom = new String[6];
+    private String peacockRoom;
+    private String greenRoom;
+    private String scarletRoom;
+    private String plumRoom;
+    private String mustardRoom;
+    private String whiteRoom;    
 
-    public NpcConversation(String n){
-        this.Npc = n;
+    public NpcConversation(String bloodyRoom){
+        rooms.add(bloodyRoom);
+        for(int i = 1; i < 6; i++){
+            String roomId = randRoom.setRoomid();
+            if(roomId.equals(bloodyRoom))
+                roomId = randRoom.setRoomid();
+            rooms.add(roomId);
+        }
+
+        for(int j = 0; j < 6; j++){
+            setRoom[j] = rooms.remove((int)(Math.random()*rooms.size()));
+        }
+        peacockRoom = setRoom[0];
+        greenRoom = setRoom[1];
+        scarletRoom = setRoom[2];
+        plumRoom = setRoom[3];
+        mustardRoom = setRoom[4];
+        whiteRoom = setRoom[5];        
     }
-
+    
+    public String getPeacockRoom() {
+        return peacockRoom;
+    }
+    public String getGreenRoom() {
+        return greenRoom;
+    }
+    public String getScarletRoom() {
+        return scarletRoom;
+    }   
+    public String getPlumRoom() {
+        return plumRoom;
+    }
+    public String getMustardRoom() {
+        return mustardRoom;
+    }
+    public String getWhiteRoom() {
+        return whiteRoom;
+    }
 
     public void talkToPeacock(Parser parser){
         System.out.println("Hey There! My name is Mrs. Peacock! Did you hear the news, MURDER in the house!");
@@ -17,7 +60,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("Well, looking around at the beautiful decor of the " +
-            randRoom.setRoomid() + ". I was so shocked to hear of the murder!");
+            peacockRoom + ". I was so shocked to hear of the murder!");
         }
         if(response == 2){
             System.out.println("I didn't really know Mr. Boddy personally. To be honest, I had to call in a million favors in order to attend tonights event.");
@@ -32,7 +75,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("I was wandering around, exploring the manor when I may have gotten lost," +
-            " this place has so many rooms! I believe I was in the " + randRoom.setRoomid());
+            " this place has so many rooms! I believe I was in the " + greenRoom + ".");
         }
         if(response == 2){
             System.out.println("Mr Broddy? We go way back! Ever since middle school!");
@@ -47,7 +90,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("The party was starting to get dreadful boring, so I started trying" + 
-            " to find something exciting. I believe I was in the " + randRoom.setRoomid() + ".");
+            " to find something exciting. I believe I was in the " + scarletRoom + ".");
         }
         if(response == 2){
             System.out.println("I know him from some business deals I was involved in. He's a nice guy, really!");
@@ -62,7 +105,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("I was looking for Mrs. Peacock in the " + 
-            randRoom.setRoomid() + ", there was a particular bird species I wanted her opinion on.");
+            plumRoom + ", there was a particular bird species I wanted her opinion on.");
         }
         if(response == 2){
             System.out.println("I knew him from a friend of a friend. He seemed fun, such a shame this happened to him.");
@@ -77,7 +120,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("I needed to find a place to smoke my cigar, I ended up heading to the " +
-            randRoom.setRoomid() + ".");
+            mustardRoom + ".");
         }
         if(response == 2){
             System.out.println("Mr Broddy! I knew his folks, we went way back.");
@@ -92,7 +135,7 @@ public class NpcConversation {
         int response = parser.getConversationResponse();
         if(response == 1){
             System.out.println("I was just tidying up, doing some dusting in the " +
-            randRoom.setRoomid() + ". Now it seems I have even more work, cleaning up all the blood.");
+            whiteRoom + ". Now it seems I have even more work, cleaning up all the blood.");
         }
         if(response == 2){
             System.out.println("How I knew him? He was my boss!");

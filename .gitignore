@@ -13,3 +13,8 @@ bin/zork/NpcConversation.class
 bin/zork/Parser.class
 bin/zork/Room.class
 bin/zork/test.class
+bin/App.class
+bin/zork/Command.class
+bin/zork/OpenableObject.class
+bin/zork/randomRoom.class
+bin/zork/Zork.class

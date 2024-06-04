@@ -13,8 +13,10 @@ public class test {
         currentRoom.getInventory().addItem(wrench);
         currentRoom.getInventory().printItems();*/
 
-        Exit exit = new Exit("North", "This", true, "1234");
-        System.out.println(exit.isLocked());
+        /*Exit exit = new Exit("North", "This", true, "1234");
+        System.out.println(exit.isLocked());*/
+        //NpcConversation ooga = new NpcConversation("Ballroom");
+        //ooga.printRooms();
 
     }
 }

@@ -1,0 +1,330 @@
+{
+  "rooms": [ 
+    {
+      "id": "Front Step",
+      "name": "Front Step",
+      "npc":"Peacock",
+      "longDescription": "The front step of the mansion is a quaint entryway adorned with a simple, welcoming doormat that reads 'Welcome.' Potted plants line either side, and the door knocker is shaped like a lion's head, offering a grand yet inviting first impression. Type 'go north' to enter.",
+      "shortDescription": "A small, welcoming front step with a doormat.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Hall"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "West Garden"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "East Garden"
+        }
+      ]
+    },
+    {
+      "id": "Hall",
+      "name": "Hall",
+      "npc":"Green",
+      "longDescription": "The grand hall of the mansion boasts towering ceilings and a magnificent crystal chandelier that casts a soft glow over the polished marble floor. Portraits of stern ancestors line the walls, their eyes seemingly following your every move as you step inside.",
+      "shortDescription": "A grand hall with high ceilings and a crystal chandelier.",
+      "exits": [ 
+        { 
+          "isLocked": true,
+          "direction": "Northwest",
+          "adjacentRoom": "Bathroom",
+          "keyId": "0429"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Dining Room"
+        },
+        {
+          "isLocked": true,
+          "direction": "Southwest",
+          "adjacentRoom": "Lounge",
+          "keyId": "6789"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southeast",
+          "adjacentRoom": "Study"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Ballroom"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Library"
+        },
+        {
+          "isLocked": false,
+          "direction": "Northeast",
+          "adjacentRoom": "Billiard Room"
+        },
+        {
+          "isLocked": false,
+          "direction": "Northnortheast",
+          "adjacentRoom": "Conservatory"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Front Step"
+        }
+      ]
+    },
+    {
+      "id": "Lounge",
+      "name": "Lounge",
+      "npc":"Scarlet",
+      "longDescription": "The mansion's lounge is a warm and inviting space, filled with plush, overstuffed chairs and sofas. A roaring fireplace crackles in the corner, casting a comforting glow. Shelves lined with well-read books and curious knick-knacks add to the room's charm and character.",
+      "shortDescription": "A cozy lounge with plush seating and a roaring fireplace.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Secret Passage to Conservatory"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Hall"
+        }
+      ]
+    },
+    {
+      "id": "Dining Room",
+      "name": "Dining Room",
+      "npc":"Plum",
+      "longDescription": "The elegant dining room features a long, polished mahogany table set with fine china and gleaming silverware. A candelabrum serves as the table's centerpiece, casting flickering light onto the intricate, patterned wallpaper. The room's air carries the faint scent of past feasts.",
+      "shortDescription": "An elegant dining room with a long table set for a feast.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Hall"
+        },
+        {
+          "isLocked": true,
+          "direction": "North",
+          "adjacentRoom": "Kitchen"
+        }
+      ]
+    },
+    {
+      "id": "Kitchen",
+      "name": "Kitchen",
+      "npc":"Mustard",
+      "longDescription": "The mansion's kitchen is the heart of the home, equipped with modern appliances and a large central island for preparation. Pots and pans hang from a ceiling rack, and the aroma of fresh herbs and spices fills the air, creating a lively and welcoming atmosphere.",
+      "shortDescription": "A bustling kitchen with modern appliances and a large island.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Dining Room"
+        },
+        {
+          "isLocked": true,
+          "direction": "West",
+          "adjacentRoom": "Secret Passage to Study"
+        }
+      ]
+    },
+    {
+      "id": "Bathroom",
+      "name": "Bathroom",
+      "npc":"White",
+      "longDescription": "This charming bathroom features a classic clawfoot tub and a sleek pedestal sink. The tiled floor is pristine, and a large mirror reflects the soft light from a frosted glass window. The scent of lavender and eucalyptus adds to the room's refreshing ambiance.",
+      "shortDescription": "A nice bathroom with a clawfoot tub and a pedestal sink.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Southeast",
+          "adjacentRoom": "Hall"
+        }
+      ]
+    },
+    {
+      "id": "Ballroom",
+      "name": "Ballroom",
+      "longDescription": "The grand ballroom is a majestic space within the mansion, featuring a polished dance floor that gleams under the light of a massive crystal chandelier. A grand piano sits in one corner, and the room is surrounded by tall windows draped with luxurious curtains, evoking a sense of elegance and grandeur.",
+      "shortDescription": "A grand ballroom with a polished dance floor and grand piano.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Hall"
+        }
+      ]
+    },
+    {
+      "id": "Conservatory",
+      "name": "Conservatory",
+      "longDescription": "The conservatory is a bright and airy space within the mansion, filled with vibrant green exotic plants and the earthy scent of potting soil. Wicker furniture provides comfortable seating, and the glass walls and ceiling offer a panoramic view of the sky and gardens outside, creating a tranquil oasis.",
+      "shortDescription": "A bright conservatory filled with exotic plants and wicker furniture.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Southwest",
+          "adjacentRoom": "Hall"
+        },
+        {
+          "isLocked": true,
+          "direction": "West",
+          "adjacentRoom": "Secret Passage to Lounge",
+          "keyId": "8624"
+        }
+      ]
+    },
+    {
+      "id": "Billiard Room",
+      "name": "Billiard Room",
+      "longDescription": "The billiard room exudes sophistication, centered around a well-maintained pool table under a trio of hanging lights. Dark wood paneling and a small bar stocked with an array of spirits add to the room's allure, making it a favorite spot for both relaxation and entertainment.",
+      "shortDescription": "A sophisticated billiard room with a pool table and bar.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Hall"
+        }
+      ]
+    },
+    {
+      "id": "Library",
+      "name": "Library",
+      "longDescription": "The library is a quiet sanctuary within the mansion, lined with towering shelves crammed with books of every genre. A cozy reading nook by the window offers a perfect spot to lose oneself in a good book. The room smells of aged paper and polished wood, and the soft rustle of turning pages is the only sound.",
+      "shortDescription": "A quiet library filled with shelves of books and a reading nook.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Hall"
+        }
+      ]
+    },
+    {
+      "id": "Study",
+      "name": "Study",
+      "longDescription": "The study is a private, intimate space dominated by a large oak desk strewn with papers and writing implements. A leather armchair provides a comfortable spot for reading or contemplation. The room is filled with the scent of old books and pipe tobacco, giving it an air of scholarly retreat.",
+      "shortDescription": "A private study with a large desk and leather armchair.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Hall"
+        },
+        {
+          "isLocked": true,
+          "direction": "South",
+          "adjacentRoom": "Secret Passage to Kitchen",
+          "keyId": "0616"
+        }
+      ]
+    },
+    {
+      "id": "West Garden",
+      "name": "West Garden",
+      "longDescription": "The west garden is a tranquil retreat, filled with blooming flowers and the soft hum of bees. A stone bench under a pergola offers a peaceful place to sit and enjoy the beauty of nature. The air is fragrant with the scent of roses and freshly cut grass, creating a serene outdoor haven.",
+      "shortDescription": "A tranquil west garden with blooming flowers and a stone bench.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Front Step"
+        }
+      ]
+    },
+    {
+      "id": "East Garden",
+      "name": "East Garden",
+      "longDescription": "The east garden is picturesque, featuring a central fountain whose gentle splashing provides a soothing backdrop. Trimmed hedges and carefully arranged flower beds create a sense of order and beauty. The garden is a perfect spot for a leisurely stroll or quiet reflection.",
+      "shortDescription": "A picturesque east garden with a fountain and trimmed hedges.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Front Step"
+        }
+      ]
+    },
+    {
+      "id": "Secret Passage to Conservatory",
+      "name": "Secret Passage to Conservatory",
+      "longDescription": "This secret passage, cleverly concealed behind a bookcase, is a narrow, dimly lit corridor that winds its way to the conservatory, offering a discreet route for those in the know. The air is cool and slightly musty, adding to the passage's clandestine feel.",
+      "shortDescription": "A hidden passage leading to the conservatory.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northeast",
+          "adjacentRoom": "Conservatory"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southwest",
+          "adjacentRoom": "Lounge"
+        }
+      ]
+    },
+    {
+      "id": "Secret Passage to Lounge",
+      "name": "Secret Passage to Lounge",
+      "longDescription": "The passage to the lounge is hidden behind a sliding panel in the wall. It's a tight, shadowy space that provides a quick and secretive route to the lounge. The passage's walls are rough, and the floor creaks softly underfoot, enhancing its hidden nature.",
+      "shortDescription": "A hidden passage leading to the lounge.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northeast",
+          "adjacentRoom": "Conservatory"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southwest",
+          "adjacentRoom": "Lounge"
+        }
+      ]
+    },
+    {
+      "id": "Secret Passage to Kitchen",
+      "name": "Secret Passage to Kitchen",
+      "longDescription": "The secret passage to the kitchen is concealed behind a false wall in the dining room. It's a narrow, slightly claustrophobic tunnel that opens into the kitchen, allowing for stealthy movement between the two rooms. The scent of cooking sometimes wafts through, mingling with the passage's damp, earthy smell.",
+      "shortDescription": "A hidden passage leading to the kitchen.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northwest",
+          "adjacentRoom": "Kitchen"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southeast",
+          "adjacentRoom": "Study"
+        }
+      ]
+    },
+    {
+      "id": "Secret Passage to Study",
+      "name": "Secret Passage to Study",
+      "longDescription": "This secret passage is hidden behind a hinged bookshelf in the library. It's a winding, dim corridor that leads directly to the study, offering a surreptitious way to move between these intellectual havens. The walls are lined with old maps and notes, giving it an air of secret scholarship.",
+      "shortDescription": "A hidden passage leading to the study.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Northwest",
+          "adjacentRoom": "Kitchen"
+        },
+        {
+          "isLocked": false,
+          "direction": "Southeast",
+          "adjacentRoom": "Study"
+        }
+      ]
+    }
+  ]
+}

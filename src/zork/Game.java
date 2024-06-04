@@ -19,8 +19,9 @@ public class Game {
   private Parser parser;
   private static Room currentRoom;
   private character player = new character("Player");
+  private NpcConversation talk;
   private guess guess = new guess();
-
+  private String bloodyRoom = "";
   /**
    * Create the game and initialise its internal map.
    */
@@ -28,6 +29,7 @@ public class Game {
     try {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
+      NpcConversation talk = new NpcConversation(bloodyRoom);
       currentRoom = roomMap.get("Front Step");
     } catch (Exception e) {
       e.printStackTrace();
@@ -43,7 +45,6 @@ public class Game {
     JSONObject json = (JSONObject) parser.parse(jsonString); // parse to make it one big object
     randomRoom randRoom = new randomRoom();
     randomBloody randBlood = new randomBloody();
-    String bloodyRoom = "";
 
     JSONArray jsonItems = (JSONArray) json.get("items");
 
@@ -294,7 +295,6 @@ public class Game {
   }
 
   private void talkToNpc(String secondWord) {
-    NpcConversation talk = new NpcConversation(secondWord);
     if(secondWord.equalsIgnoreCase("Mrs. Peacock") || secondWord.equalsIgnoreCase("peacock") || currentRoom.getNpc().equals("Peacock")){
       talk.talkToPeacock(parser);
     }
