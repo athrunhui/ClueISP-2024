@@ -248,7 +248,7 @@ public class Game {
           if (pickUp == null)
             System.out.println("This is not an item.");
           else
-            if(player.getInventory().addItem(pickUp))
+            if(player.getInventory().addItem(currentRoom.getInventory().removeItem(pickUp.getName(), player.getInventory().getMaxWeight())))
               System.out.println("You have picked up the " + pickUp.getName());
         }
     } else if(commandWord.equals("guess")){
@@ -322,9 +322,16 @@ public class Game {
   }
 
   private void examine(String secondWord){
-    if(currentRoom.getInventory().findItem(secondWord.toLowerCase())){
-      Item a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
-      System.out.println("You see a " + a.getDescription());
+    Item a = null;
+    if(currentRoom.getInventory().findItem(secondWord.toLowerCase()) || 
+       player.getInventory().findItem(secondWord.toLowerCase())){
+      
+      if(currentRoom.getInventory().findItem(secondWord.toLowerCase())){
+        a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
+        System.out.println("You see a " + a.getDescription());        
+      } else if(player.getInventory().findItem(secondWord.toLowerCase()))
+        a = player.getInventory().getItem(secondWord.toLowerCase());
+        System.out.println("You have a " + a.getDescription());
       if(a.isBloody()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
         System.out.println("Upon further inspection of the item, you find that its bloody!!!" +
