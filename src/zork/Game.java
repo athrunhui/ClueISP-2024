@@ -5,7 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Objects;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,12 +17,17 @@ public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>(); // "master map"
   public static HashMap<String, Item> itemMap = new HashMap<String, Item>(); // "master map"
+  public Scanner in = new Scanner(System.in);
 
   private Parser parser;
   private static Room currentRoom;
+
   private character player = new character("Player");
   private NpcConversation talk;
   private guess guess = new guess();
+  private guess ooga = new guess();
+
+  private ArrayList<String> rooms = new ArrayList<String>();
   private String bloodyRoom = "";
   /**
    * Create the game and initialise its internal map.
@@ -29,7 +36,9 @@ public class Game {
     try {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
-      NpcConversation talk = new NpcConversation(bloodyRoom);
+      talk = new NpcConversation(bloodyRoom);
+      ooga.printCorrect();
+      ooga.printLists();
       currentRoom = roomMap.get("Front Step");
     } catch (Exception e) {
       e.printStackTrace();
@@ -87,8 +96,8 @@ public class Game {
       itemMap.put(id, item);
       }
     }
-    guess.setMurWep(itemMap.get(randBlood.getBloodyItem()));
-    guess.setMurRoom(roomMap.get(bloodyRoom));
+    zork.guess.setMurWep(itemMap.get(randBlood.getBloodyItem()));
+    zork.guess.setMurRoom(roomMap.get(bloodyRoom));
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -122,7 +131,9 @@ public class Game {
       }
       room.setExits(exits); // set exits for room
       roomMap.put(roomId, room); // puts room in hash map and links to room ID
+      rooms.add(room.getRoomName());
     }
+    zork.guess.setRooms(rooms);
   }
 
   /**
@@ -177,15 +188,19 @@ public class Game {
     String commandWord = command.getCommandWord();
     if (commandWord.equals("help"))
       printHelp();
+    
     else if (commandWord.equals("go"))
       goRoom(command);
+    
     else if (commandWord.equals("quit")) {
       if (command.hasSecondWord())
         System.out.println("Quit what?");
       else
         return true; // signal that we want to quit
+    
     } else if (commandWord.equals("eat")) {
         System.out.println("Do you really think you should be eating at a time like this?");
+    
     } else if (commandWord.equals("look"))
         currentRoom.getInventory().printItems();
       else if(commandWord.equals("examine")){
@@ -195,6 +210,7 @@ public class Game {
       }else{
         examine(command.getSecondWord());
       }      
+    
     } else if(commandWord.equals("use")) {
         if(!command.hasSecondWord()){
           System.out.println("What do you want to use?");
@@ -205,14 +221,15 @@ public class Game {
 
     } else if(commandWord.equals("check")) {
         player.getInventory().printPlayerItems();
+    
     } else if (commandWord.equals("talk")){
       if (!command.hasSecondWord()){
         System.out.println("Who do you want to talk to?");
           return false;
       } else
         talkToNpc(command.getSecondWord());
-    }
-      else if (commandWord.equals("take")){
+    
+    } else if (commandWord.equals("take")){
         if (!command.hasSecondWord()){
           System.out.println("What do you want to take?");
           return false;
@@ -232,10 +249,38 @@ public class Game {
             if(player.getInventory().addItem(pickUp))
               System.out.println("You have picked up the " + pickUp.getName());
         }
-      }
+    } else if(commandWord.equals("guess")){
+      System.out.println("Are you sure you want to make a guess?");
+      if(yesOrNo())
+        return false;
+
+    }
     return false;
   }
+
   // implementations of user commands:
+  
+  private boolean yesOrNo() {
+    System.out.print("\u001B[?25l");  // Hide the cursor
+    boolean isValid = false;
+    String result = "";
+    while(!isValid){
+        System.out.print("(y/n): ");
+        try{
+            result = (in.nextLine()).toLowerCase(); //turns next thing put to lowercase
+            if ((result.equals("n"))||(result.equals("y"))){
+                isValid = true; //if it is y or n continue to line 61
+            }
+        }catch(InputMismatchException badThing){
+            System.out.println("Please enter y or n."); //if it is not y or n, prompt again
+        }
+    }
+    if (result.equals("n")){ //if answer is n end game, otherwise play new game
+        System.out.println("Thanks for playing.");
+        return true;
+    }  
+    return false;
+  }
 
   private void use(String secondWord) {
     Item item = player.getInventory().getItem(secondWord);

@@ -6,6 +6,7 @@ public class randomBloody {
     private ArrayList<String> items;
     private static int itemNumber;
     public static String bloodyItem; 
+    public guess guess = new guess();
 
     public randomBloody(){
         items = new ArrayList<>();
@@ -20,6 +21,7 @@ public class randomBloody {
         items.add("Letter Opener");
         items.add("Golf Club");
         itemNumber = (int)(Math.random()*items.size());
+        zork.guess.setWeapons(items);
     }
 
     public Boolean setBloodyItem(String item){

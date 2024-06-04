@@ -5,7 +5,10 @@ import java.util.ArrayList;
 public class NpcConversation {
     private randomRoom randRoom = new randomRoom();
     private ArrayList<String> rooms = new ArrayList<String>();
+    private guess guess = new guess();
     private String[] setRoom = new String[6];
+    private ArrayList<String> people = new ArrayList<String>();
+    private String bloodyPerson;
     private String peacockRoom;
     private String greenRoom;
     private String scarletRoom;
@@ -14,6 +17,13 @@ public class NpcConversation {
     private String whiteRoom;    
 
     public NpcConversation(String bloodyRoom){
+        people.add("Mrs. Peacock");
+        people.add("Mr. Green");
+        people.add("Ms. Scarlet");
+        people.add("Prof. Plum");
+        people.add("Col. Mustard");
+        people.add("Ms. White");
+        zork.guess.setPeople(people);
         rooms.add(bloodyRoom);
         for(int i = 1; i < 6; i++){
             String roomId = randRoom.setRoomid();
@@ -25,14 +35,27 @@ public class NpcConversation {
         for(int j = 0; j < 6; j++){
             setRoom[j] = rooms.remove((int)(Math.random()*rooms.size()));
         }
+
         peacockRoom = setRoom[0];
         greenRoom = setRoom[1];
         scarletRoom = setRoom[2];
         plumRoom = setRoom[3];
         mustardRoom = setRoom[4];
-        whiteRoom = setRoom[5];        
+        whiteRoom = setRoom[5];  
+
+        for(int i = 0; i < 6; i++){
+            if(bloodyRoom.equals(setRoom[i]))
+                bloodyPerson = people.get(i);
+        }
+        zork.guess.setMurPers(bloodyPerson);
     }
-    
+
+    public ArrayList<String> getPeople(){
+        return people;
+    }
+    public String getBloodyPerson(){
+        return bloodyPerson;
+    }
     public String getPeacockRoom() {
         return peacockRoom;
     }
