@@ -93,7 +93,8 @@ public class Game {
           itemMap.get(itemId).getInventory().addItem(item);
         }      
       itemMap.put(id, item);
-      weapons.add(name);
+      if(item.isMurWep())
+        weapons.add(name);
       }
     }
     zork.guess.setMurWep(itemMap.get(randBlood.getBloodyItem()));
@@ -254,6 +255,7 @@ public class Game {
       System.out.println("Are you sure you want to make a guess?");
       if(yesOrNo())
         return false;
+      System.out.println("no capitals are needed");
       guess.guessWep(in);
       guess.guessRoom(in);
       guess.guessPers(in);
@@ -294,7 +296,6 @@ public class Game {
         }
     }
     if (result.equals("n")){ //if answer is n end game, otherwise play new game
-        System.out.println("Thanks for playing.");
         return true;
     }  
     return false;
