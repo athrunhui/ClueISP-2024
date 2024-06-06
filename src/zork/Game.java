@@ -37,7 +37,6 @@ public class Game {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
       talk = new NpcConversation(bloodyRoom);
-      guess.printCorrect();
       currentRoom = roomMap.get("Front Step");
     } catch (Exception e) {
       e.printStackTrace();
