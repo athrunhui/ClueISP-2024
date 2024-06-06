@@ -262,17 +262,18 @@ public class Game {
       if(yesOrNo())
         return false;
       if(guess.checkCorrect()){
-        /*
-         * 
-         * JULIET PUT WIN LOSE DIALOGUE HERE
-         * GUESS.CHECKCORRECT WILL RETURN TRUE IF ALL 3 CORRECT AND FALSE IF NOT ALL 3 CORRECT
-         * RETURN TRUE IN GAME CLASS TO END GAME
-         * GUESS.CHECKCORRECT WILL PRINT THE ANSWER IF THEY LOSE
-         * 
-         * 
-         */
+        System.out.println();
+        System.out.println("You reveal the truth behind the murder of Mr. Boddy to all the guests. You were correct!");
+        System.out.println("The murderer tries to make a run for it, but you along with the other guests");
+        System.out.println("catch them and hold them until the police arrive to take them away to jail.");
+        return true;
+      } else {
+        System.out.println();
+        System.out.println("You reveal the truth behind the murder of Mr. Boddy to all the guests. You were incorrect!");
+        System.out.println("You were unable to correctly gather all the clues, the poice arrive but are unable to arrest anyone.");
+        System.out.println("The killer walks free and the mystery remains unsolved.");
+        return true;
       }
-
     }
     return false;
   }
@@ -392,7 +393,7 @@ public class Game {
    * and a list of the command words.
    */
   private void printHelp() {
-    System.out.println("You are a detective in the middle of a murder myster. You are alone. You wander");
+    System.out.println("You are a detective in the middle of a murder mystery. You are alone. You wander");
     System.out.println("around the vast halls of the mansion looking for clues that will point you to your murderer.");
     System.out.println();
     System.out.println("Your command words are:");

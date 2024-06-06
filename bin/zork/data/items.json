@@ -1,0 +1,488 @@
+{
+"items" :[
+    {
+        "id": "straw",  
+        "name": "paper straw",
+        "description": "paper straw that will likely get soggy as soon as it enters a liquid",
+        "room_id": "Hall",
+        "weight": "5", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false"            
+    },
+    {
+        "id": "Chest",
+        "name": "Big Chest",
+        "description": "a very big chest",
+        "room_id": "Lounge",
+        "weight": "10000", 
+        "isOpenable": "false"
+    },
+    {
+        "id": "Book",
+        "name": "Sherlock Holmes Book",
+        "description": "An old dusty book. The title reads: 'Sherlock Holmes: A Study in Scarlet'.",
+        "room_id": "Lounge",
+        "weight": "15", 
+        "isOpenable": "true", 
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null,
+        "**SPECIAL NOTE**": "when user tries to open the book, print: should you really be reading now?"
+    },
+    {
+        "id": "Chess Board",
+        "name": "wooden chess board",
+        "description": "chess board... you can play with friends or by yourself if you're lonely.",
+        "room_id": "Lounge",
+        "weight": "15", 
+        "isOpenable": "false"
+    },
+    {
+        "id": "TV",
+        "name": "television",
+        "description": "flat-screen display mounted on the wall or placed on a stand, used for entertainment.",
+        "room_id": "Lounge",
+        "weight": "50", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Table",
+        "name": "Dining Table",
+        "description": "long table where meals are served, made with high quality wood vaneer.",
+        "room_id": "Dining Room",
+        "weight": "80", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Spaghetti",
+        "name": "Strand of Spaghetti",
+        "description": "lone strand of spaghetti, blanketed with a layer of marinara sauce and bits of parmesan.",
+        "room_id": "Dining Room",
+        "weight": "5", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Lamp",
+        "name": "Crusty Lamp",
+        "description": "crusty lamp, looks like it could have belonged to your grandma.",
+        "room_id": "Dining Room",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    }, 
+    {
+        "id": "Refrigerator",
+        "name": "refrigerator",
+        "description": "large appliance used to slow down bacterial growth.",
+        "room_id": "Kitchen",
+        "weight": "100", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },  
+    {
+        "id": "Spatula",
+        "name": "spatula",
+        "description": "spatula; upon inspection, it's made of silicone, too flimsy to kill anyone with...",
+        "room_id": "Kitchen",
+        "weight": "10", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Cereal",
+        "name": "cereal",
+        "description": "box of froot loops! Opened, half-eaten.",
+        "room_id": "Kitchen",
+        "weight": "15", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Garbage Can",
+        "name": "garbage can",
+        "description": "small garbage can; I don't think we should look inside. ",
+        "room_id": "Bathroom",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Moisturizer",
+        "name": "moisturizer",
+        "description": "huge container of CeraVe moisturizer; someone's got dry skin...",
+        "room_id": "Bathroom",
+        "weight": "30", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Toothbrush",
+        "name": "toothbrush",
+        "description": "toothbrush left in pristine condition. It's either brand new or someone doesn't clean their teeth...",
+        "room_id": "Bathroom",
+        "weight": "5", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Shower Cap",
+        "name": "showercap",
+        "description": "showercap. A cap you put on in the shower.",
+        "room_id": "Bathroom",
+        "weight": "1", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Grand Piano",
+        "name": "grand piano",
+        "description": "beautiful grand piano, seems to be frequently used.",
+        "room_id": "Ballroom",
+        "weight": "200", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Chair",
+        "name": "chair",
+        "description": "An exquisite Victorian style armchair. You see several more lining the walls.",
+        "room_id": "Ballroom",
+        "weight": "50", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "PaintingM",
+        "name": "canvas",
+        "description": "canvas with a couple scribbles here and there. Modern art.",
+        "room_id": "Ballroom",
+        "weight": "70", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Cactus",
+        "name": "cactus",
+        "description": "cactus plant. They really do have every type of plant in here huh?",
+        "room_id": "Conservatory",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Armchair",
+        "name": "armchair",
+        "description": "leather brown armchair; feels soft to sit on.",
+        "room_id": "Conservatory",
+        "weight": "80", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Lantern",
+        "name": "lantern",
+        "description": "portable lantern that's perfect for some late night reading.",
+        "room_id": "Conservatory",
+        "weight": "10", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Pool Table",
+        "name": "pool table",
+        "description": "pool table with six pockets; can be used to play pool or billiards.",
+        "room_id": "Billiard Room",
+        "weight": "100", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Pool Stick",
+        "name": "pool stick",
+        "description": "stick used to play pool; beside it lies chalk for the tip.",
+        "room_id": "Billiard Room",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Ping Pong Table",
+        "name": "ping pong table",
+        "description": "table for ping pong. A pair of racquets face each other and balls are scattered around the room.",
+        "room_id": "Billiard Room",
+        "weight": "100", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Lamp B",
+        "name": "Old Crusty Lamp",
+        "description": "old crusty lamp, looks like it could have belonged to your grandma.",
+        "room_id": "Library",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Ottoman",
+        "name": "ottoman",
+        "description": "leather ottoman. Paired with the leather armchair, it makes for a comfortable reading spot.",
+        "room_id": "Library",
+        "weight": "35", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Armchair B",
+        "name": "armchair",
+        "description": "leather brown armchair; feels soft to sit on.",
+        "room_id": "Library",
+        "weight": "80", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Lamp C",
+        "name": "Lamp",
+        "description": "lamp used for studying that's covered with rust, looks like it could have belonged to your grandma.",
+        "room_id": "Study",
+        "weight": "20", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Journal",
+        "name": "journal",
+        "description": "private journal. I wonder what's in it...",
+        "room_id": "Study",
+        "weight": "15", 
+        "isOpenable": "false",
+        "isExaminable": "true",
+        "isLocked": "false",
+        "isBloody": null
+    },
+    {
+        "id": "Candle",
+        "name": "Candle Stick",
+        "description": "beautiful gold candle stick on a shelf",
+        "room_id": null,
+        "weight": "10", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Wrench",
+        "name": "Metal Wrench",
+        "description": "heavy metal wrench in a tool kit",
+        "room_id": null,
+        "weight": "15", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Rope",
+        "name": "Long Rope",
+        "description": "long brown rope hanging on the wall",
+        "room_id": null,
+        "weight": "10",
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Pipe",
+        "name": "Lead Pipe",
+        "description": "heavy lead pipe lying on the floor",
+        "room_id": null,
+        "weight": "15", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Knife",
+        "name": "Sharp Knife",
+        "description": "shiny sharp knife on the counter",
+        "room_id": "Kitchen",
+        "weight": "5", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Gun",
+        "name": "Revolver",
+        "description": "metal revolver with a silencer lying on a table",
+        "room_id": null,
+        "weight": "10", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Shovel",
+        "name": "Dirty Shovel",
+        "description": "dirty shovel stuck in the dirt",
+        "room_id": "West Garden",
+        "weight": "15", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Baseball Bat",
+        "name": "Baseball Bat",
+        "description": "silver baseball bat sits against the wall",
+        "room_id": null,
+        "weight": "15", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Letter Opener",
+        "name": "Letter Opener",
+        "description": "well-weighted letter opener",
+        "room_id": "Study",
+        "weight": "5", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Golf Club",
+        "name": "Golf Club",
+        "description": "9-iron golf club inside a golf bag",
+        "room_id": "East Garden",
+        "weight": "15", 
+        "isExaminable": "true",
+        "isBloody": null,
+        "murderWeapon": "true"
+    },
+    {
+        "id": "Shelf",
+        "name": "Bookshelf",
+        "description": "bookshelf full of books sits along the wall, a book seems out of order...",
+        "room_id": "Hall",
+        "weight": "999999", 
+        "isOpenable": "true",
+        "isExaminable": "true"
+    },
+    {
+        "id": "Painting",
+        "name": "Painting",
+        "description": "painting of Mount Everest hangs on the wall, it hangs slightly angled...",
+        "room_id": "Hall",
+        "weight": "999999", 
+        "isOpenable": "true",
+        "isExaminable": "true"
+    },
+    {
+        "id": "Plant",
+        "name": "Plant",
+        "description": "big leafy plant rests in the middle of the room, there is something shiny in the dirt...",
+        "room_id": "Conservatory",
+        "weight": "999999", 
+        "isOpenable": "true",
+        "isExaminable": "true"
+    },
+    {
+        "id": "Desk",
+        "name": "Desk",
+        "description": "large mahogany desk sits at the back of the room with a drawer slightly ajar...",
+        "room_id": "Study",
+        "weight": "999999", 
+        "isOpenable": "true",
+        "isExaminable": "true"
+    },
+    {
+        "id": "Key1",
+        "name": "Gold Key",
+        "description": "gold key",
+        "item_id" :"Plant",
+        "weight": "1", 
+        "isExaminable": "true",
+        "keyid":"8624"
+    },
+    {
+        "id": "KeyB",
+        "name": "Silver Key",
+        "description": "silver key",
+        "item_id" :"Painting",
+        "weight": "1", 
+        "isExaminable": "true",
+        "keyid":"0429"
+    },
+    {
+        "id": "Key2",
+        "name": "Bronze Key",
+        "description": "bronze Key",
+        "item_id" :"Desk",
+        "weight": "1", 
+        "isExaminable": "true",
+        "keyid":"0616"
+    },
+    {
+        "id": "Blood",
+        "name": "Trail of Blood",
+        "description": "trail of blood drops!!! This is the room where the murder took place!!!",
+        "room_id": null,
+        "weight": "1", 
+        "isExaminable": "true"
+    }
+]
+}
