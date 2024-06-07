@@ -246,9 +246,13 @@ public class Game {
           }
           if (pickUp == null)
             System.out.println("This is not an item.");
-          else
-            if(player.getInventory().addItem(currentRoom.getInventory().removeItem(pickUp.getName(), player.getInventory().getMaxWeight())))
+          else{
+            Item removeItem = currentRoom.getInventory().removeItem(pickUp.getName(), player.getInventory().getMaxWeight());
+            if(removeItem != null){
+              player.getInventory().addItem(removeItem);
               System.out.println("You have picked up the " + pickUp.getName());
+            }
+          }
         }
     } else if(commandWord.equals("guess")){
       System.out.println("Are you sure you want to make a guess?");
