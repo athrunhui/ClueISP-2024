@@ -3,7 +3,7 @@
     {
       "id": "Front Step",
       "name": "Front Step",
-      "npc":"Peacock",
+      "npc":"Mrs. Peacock",
       "longDescription": "The front step of the mansion is a quaint entryway adorned with a simple, welcoming doormat that reads 'Welcome.' Potted plants line either side, and the door knocker is shaped like a lion's head, offering a grand yet inviting first impression. Type 'go north' to enter.",
       "shortDescription": "A small, welcoming front step with a doormat.",
       "exits": [
@@ -27,7 +27,7 @@
     {
       "id": "Hall",
       "name": "Hall",
-      "npc":"Green",
+      "npc":"Mr. Green",
       "longDescription": "The grand hall of the mansion boasts towering ceilings and a magnificent crystal chandelier that casts a soft glow over the polished marble floor. Portraits of stern ancestors line the walls, their eyes seemingly following your every move as you step inside.",
       "shortDescription": "A grand hall with high ceilings and a crystal chandelier.",
       "exits": [ 
@@ -83,7 +83,7 @@
     {
       "id": "Lounge",
       "name": "Lounge",
-      "npc":"Scarlet",
+      "npc":"Ms. Scarlet",
       "longDescription": "The mansion's lounge is a warm and inviting space, filled with plush, overstuffed chairs and sofas. A roaring fireplace crackles in the corner, casting a comforting glow. Shelves lined with well-read books and curious knick-knacks add to the room's charm and character.",
       "shortDescription": "A cozy lounge with plush seating and a roaring fireplace.",
       "exits": [
@@ -102,7 +102,7 @@
     {
       "id": "Dining Room",
       "name": "Dining Room",
-      "npc":"Plum",
+      "npc":"Prof. Plum",
       "longDescription": "The elegant dining room features a long, polished mahogany table set with fine china and gleaming silverware. A candelabrum serves as the table's centerpiece, casting flickering light onto the intricate, patterned wallpaper. The room's air carries the faint scent of past feasts.",
       "shortDescription": "An elegant dining room with a long table set for a feast.",
       "exits": [
@@ -121,7 +121,7 @@
     {
       "id": "Kitchen",
       "name": "Kitchen",
-      "npc":"Mustard",
+      "npc":"Col. Mustard",
       "longDescription": "The mansion's kitchen is the heart of the home, equipped with modern appliances and a large central island for preparation. Pots and pans hang from a ceiling rack, and the aroma of fresh herbs and spices fills the air, creating a lively and welcoming atmosphere.",
       "shortDescription": "A bustling kitchen with modern appliances and a large island.",
       "exits": [
@@ -140,7 +140,7 @@
     {
       "id": "Bathroom",
       "name": "Bathroom",
-      "npc":"White",
+      "npc":"Ms. White",
       "longDescription": "This charming bathroom features a classic clawfoot tub and a sleek pedestal sink. The tiled floor is pristine, and a large mirror reflects the soft light from a frosted glass window. The scent of lavender and eucalyptus adds to the room's refreshing ambiance.",
       "shortDescription": "A nice bathroom with a clawfoot tub and a pedestal sink.",
       "exits": [
@@ -154,6 +154,7 @@
     {
       "id": "Ballroom",
       "name": "Ballroom",
+      "npc":"Mrs. Peacock",
       "longDescription": "The grand ballroom is a majestic space within the mansion, featuring a polished dance floor that gleams under the light of a massive crystal chandelier. A grand piano sits in one corner, and the room is surrounded by tall windows draped with luxurious curtains, evoking a sense of elegance and grandeur.",
       "shortDescription": "A grand ballroom with a polished dance floor and grand piano.",
       "exits": [
@@ -167,7 +168,8 @@
     {
       "id": "Conservatory",
       "name": "Conservatory",
-      "longDescription": "The conservatory is a bright and airy space within the mansion, filled with vibrant green exotic plants and the earthy scent of potting soil. Wicker furniture provides comfortable seating, and the glass walls and ceiling offer a panoramic view of the sky and gardens outside, creating a tranquil oasis.",
+      "npc":"Ms. White",
+      "longDescription": "The conservatory is a bright and airy space within the mansion, filled with vibrant Mr. Green exotic plants and the earthy scent of potting soil. Wicker furniture provides comfortable seating, and the glass walls and ceiling offer a panoramic view of the sky and gardens outside, creating a tranquil oasis.",
       "shortDescription": "A bright conservatory filled with exotic plants and wicker furniture.",
       "exits": [
         {
@@ -186,6 +188,7 @@
     {
       "id": "Billiard Room",
       "name": "Billiard Room",
+      "npc":"Col. Mustard",
       "longDescription": "The billiard room exudes sophistication, centered around a well-maintained pool table under a trio of hanging lights. Dark wood paneling and a small bar stocked with an array of spirits add to the room's allure, making it a favorite spot for both relaxation and entertainment.",
       "shortDescription": "A sophisticated billiard room with a pool table and bar.",
       "exits": [
@@ -199,6 +202,7 @@
     {
       "id": "Library",
       "name": "Library",
+      "npc":"Prof. Plum",
       "longDescription": "The library is a quiet sanctuary within the mansion, lined with towering shelves crammed with books of every genre. A cozy reading nook by the window offers a perfect spot to lose oneself in a good book. The room smells of aged paper and polished wood, and the soft rustle of turning pages is the only sound.",
       "shortDescription": "A quiet library filled with shelves of books and a reading nook.",
       "exits": [
@@ -212,6 +216,7 @@
     {
       "id": "Study",
       "name": "Study",
+      "npc":"Ms. Scarlet",
       "longDescription": "The study is a private, intimate space dominated by a large oak desk strewn with papers and writing implements. A leather armchair provides a comfortable spot for reading or contemplation. The room is filled with the scent of old books and pipe tobacco, giving it an air of scholarly retreat.",
       "shortDescription": "A private study with a large desk and leather armchair.",
       "exits": [
@@ -231,6 +236,7 @@
     {
       "id": "West Garden",
       "name": "West Garden",
+      "npc":"Mr. Green",
       "longDescription": "The west garden is a tranquil retreat, filled with blooming flowers and the soft hum of bees. A stone bench under a pergola offers a peaceful place to sit and enjoy the beauty of nature. The air is fragrant with the scent of roses and freshly cut grass, creating a serene outdoor haven.",
       "shortDescription": "A tranquil west garden with blooming flowers and a stone bench.",
       "exits": [
@@ -257,7 +263,7 @@
     {
       "id": "Secret Passage to Conservatory",
       "name": "Secret Passage to Conservatory",
-      "longDescription": "This secret passage, cleverly concealed behind a bookcase, is a narrow, dimly lit corridor that winds its way to the conservatory, offering a discreet route for those in the know. The air is cool and slightly musty, adding to the passage's clandestine feel.",
+      "longDescription": "This secret passage, cleverly concealed behind a bookcase, is a narrow, dimly lit corridor that winds its way to the conservatory, offering a discreet route for those in the know. The air is cool and slightly musty, adding to the passage's clandestine feel. Go northeast to conservatory",
       "shortDescription": "A hidden passage leading to the conservatory.",
       "exits": [
         {
@@ -275,7 +281,7 @@
     {
       "id": "Secret Passage to Lounge",
       "name": "Secret Passage to Lounge",
-      "longDescription": "The passage to the lounge is hidden behind a sliding panel in the wall. It's a tight, shadowy space that provides a quick and secretive route to the lounge. The passage's walls are rough, and the floor creaks softly underfoot, enhancing its hidden nature.",
+      "longDescription": "The passage to the lounge is hidden behind a sliding panel in the wall. It's a tight, shadowy space that provides a quick and secretive route to the lounge. The passage's walls are rough, and the floor creaks softly underfoot, enhancing its hidden nature. Go southwest for the lounge",
       "shortDescription": "A hidden passage leading to the lounge.",
       "exits": [
         {
@@ -293,7 +299,7 @@
     {
       "id": "Secret Passage to Kitchen",
       "name": "Secret Passage to Kitchen",
-      "longDescription": "The secret passage to the kitchen is concealed behind a false wall in the dining room. It's a narrow, slightly claustrophobic tunnel that opens into the kitchen, allowing for stealthy movement between the two rooms. The scent of cooking sometimes wafts through, mingling with the passage's damp, earthy smell.",
+      "longDescription": "The secret passage to the kitchen is concealed behind a false wall in the dining room. It's a narrow, slightly claustrophobic tunnel that opens into the kitchen, allowing for stealthy movement between the two rooms. The scent of cooking sometimes wafts through, mingling with the passage's damp, earthy smell. Go northwest to continue.",
       "shortDescription": "A hidden passage leading to the kitchen.",
       "exits": [
         {

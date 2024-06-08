@@ -25,6 +25,10 @@ public class Inventory {
     return currentWeight;
   }
 
+  public void addWeight(int add){
+    currentWeight += add;
+  }
+
   public Item getItem(String item){
     for(Item a : items){
       if(a.getName().toLowerCase().equals(item.toLowerCase()))
@@ -33,10 +37,12 @@ public class Inventory {
     return null;
   }
 
-  public boolean addItem(Item item) {
-    if (item.getWeight() + currentWeight <= maxWeight)
+  public boolean addItem(Item item, character player) {
+    if (item.getWeight() + currentWeight <= maxWeight){
+      if(player != null)
+        player.getInventory().addWeight(item.getWeight());
       return items.add(item);
-    else {
+    } else {
       System.out.println("There is no room to add the item.");
       return false;
     }
@@ -70,7 +76,7 @@ public class Inventory {
 
   public boolean findItem(String command){
     for(Item a : items){
-      if(command.equals(a.getName().toLowerCase()))
+      if(command.toLowerCase().equals(a.getName().toLowerCase()))
         return true;
     }
     return false;

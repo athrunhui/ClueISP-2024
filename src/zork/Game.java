@@ -38,6 +38,7 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       talk = new NpcConversation(bloodyRoom);
       currentRoom = roomMap.get("Front Step");
+      guess.printCorrect();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -68,28 +69,28 @@ public class Game {
       if(name.indexOf("Key") >= 0){
         Key key = new Key(keyid, name, description);
         String itemId = (String)((JSONObject) itemObj).get("item_id");
-        itemMap.get(itemId).getInventory().addItem(key);
+        itemMap.get(itemId).getInventory().addItem(key, null);
         itemMap.put(itemId, key);
       } else {
         Item item = new Item(weight, name, open, examine, description, bloody, murWep);
         Boolean idNThere = Objects.isNull(((JSONObject) itemObj).get("room_id"));
         if(!idNThere){
           String roomid = (String)((JSONObject) itemObj).get("room_id");
-          roomMap.get(roomid).getInventory().addItem(item);
+          roomMap.get(roomid).getInventory().addItem(item, null);
         } else if(murWep){
           String roomid = randRoom.setRoomid();
-          roomMap.get(roomid).getInventory().addItem(item);
+          roomMap.get(roomid).getInventory().addItem(item, null);
         } else if(id.equals("Bloody")) {
           String itemId = randBlood.getBloodyItem();
-          itemMap.get(itemId).getInventory().addItem(item);
+          itemMap.get(itemId).getInventory().addItem(item, null);
         } else if(id.equals("Blood")){
           randomRoom random = new randomRoom();
           String roomId = random.setRoomid();
           bloodyRoom = roomId;
-          roomMap.get(roomId).getInventory().addItem(item);
+          roomMap.get(roomId).getInventory().addItem(item, null);
         } else {
           String itemId = (String)((JSONObject) itemObj).get("item_id");
-          itemMap.get(itemId).getInventory().addItem(item);
+          itemMap.get(itemId).getInventory().addItem(item, null);
         }      
       itemMap.put(id, item);
       if(item.isMurWep())
@@ -115,10 +116,12 @@ public class Game {
       String roomId = (String) ((JSONObject) roomObj).get("id");
       String roomShortDescription = (String) ((JSONObject) roomObj).get("shortDescription");
       String roomLongDescription = (String) ((JSONObject) roomObj).get("longDescription");
+      String npc = (String) ((JSONObject) roomObj).get("npc");
 
       room.setShortDescription(roomShortDescription);
       room.setLongDescription(roomLongDescription);
       room.setRoomName(roomName);
+      room.setNpc(npc);
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();
@@ -202,9 +205,13 @@ public class Game {
     } else if (commandWord.equals("eat")) {
         System.out.println("Do you really think you should be eating at a time like this?");
     
-    } else if (commandWord.equals("look"))
+    } else if (commandWord.equals("look")){
         currentRoom.getInventory().printItems();
-      else if(commandWord.equals("examine")){
+        if(currentRoom.getInventory().findItem("Trail of Blood"))
+          guess.setRoomFound(true);
+        if(currentRoom.getNpc() != null)
+          System.out.println(currentRoom.getNpc() + " is here.");
+    } else if(commandWord.equals("examine")){
       if (!command.hasSecondWord()){
         System.out.println("What do you want to examine?");
         return false;
@@ -222,6 +229,7 @@ public class Game {
 
     } else if(commandWord.equals("check")) {
         player.getInventory().printPlayerItems();
+        System.out.println("Your inventory is " + player.getInventory().getCurrentWeight() + "/20 full");
     
     } else if (commandWord.equals("talk")){
       if (!command.hasSecondWord()){
@@ -247,22 +255,22 @@ public class Game {
           if (pickUp == null)
             System.out.println("This is not an item.");
           else{
-            Item removeItem = currentRoom.getInventory().removeItem(pickUp.getName(), player.getInventory().getMaxWeight());
+            Item removeItem = currentRoom.getInventory().removeItem(pickUp.getName(), player.getInventory().getMaxWeight() - player.getInventory().getCurrentWeight());
             if(removeItem != null){
-              player.getInventory().addItem(removeItem);
+              player.getInventory().addItem(removeItem, player);
               System.out.println("You have picked up the " + pickUp.getName());
             }
           }
         }
     } else if(commandWord.equals("guess")){
-      System.out.println("Are you sure you want to make a guess?");
+      System.out.println("Are you sure you want to make a guess? If you guess wrong, you lose...");
       if(yesOrNo())
         return false;
       System.out.println("no capitals are needed");
       guess.guessWep(in);
       guess.guessRoom(in);
       guess.guessPers(in);
-      System.out.println("Are you sure these are the guesses you want to make?");
+      System.out.println("Are you sure these are the guesses you want to make? If at least one is wrong, you lose...");
       if(yesOrNo())
         return false;
       if(guess.checkCorrect()){
@@ -278,6 +286,14 @@ public class Game {
         System.out.println("The killer walks free and the mystery remains unsolved.");
         return true;
       }
+    }
+    if(currentRoom.getRoomName().equals("Lounge")){
+      currentRoom.getExit("east").setLocked(false);
+      roomMap.get("Hall").getExit("west").setLocked(false);
+    }
+    if(currentRoom.getRoomName().equals("Kitchen")){
+      currentRoom.getExit("south").setLocked(false);
+      roomMap.get("Dining Room").getExit("north").setLocked(false);
     }
     return false;
   }
@@ -321,7 +337,8 @@ public class Game {
         System.out.println("You cannot put any items in the secret passageways"); 
       else {
       System.out.println("You place the " + item.getName() + " in the " + currentRoom.getRoomName());
-      currentRoom.getInventory().addItem(player.getInventory().removeItem(item.getName(), Integer.MAX_VALUE));
+      currentRoom.getInventory().addItem(player.getInventory().removeItem(item.getName(), Integer.MAX_VALUE), null);
+      player.getInventory().addWeight(item.getWeight()*-1);
     }
   }
 
@@ -333,12 +350,13 @@ public class Game {
       if(currentRoom.getInventory().findItem(secondWord.toLowerCase())){
         a = currentRoom.getInventory().getItem(secondWord.toLowerCase());
         System.out.println("You see a " + a.getDescription());        
-      } else if(player.getInventory().findItem(secondWord.toLowerCase()))
+      } else if(player.getInventory().findItem(secondWord.toLowerCase())){
         a = player.getInventory().getItem(secondWord.toLowerCase());
         System.out.println("You have a " + a.getDescription());
+      }
       if(a.isBloody()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
-        System.out.println("Upon further inspection of the item, you find that its bloody!!!" +
+        System.out.println("Upon further inspection of the item, you find that its bloody!!! " +
         "This is the weapon used for the murder!");
       } else if(a.isMurWep()){
         System.out.println("As you examine the item, you find that this is a potential murder weapon.");
@@ -352,43 +370,46 @@ public class Game {
             a.setDescription("bookshelf full of books sits along the wall");
           } else if(a.getName().equals("Painting")){
             System.out.println("You fix the angled painting and a silver key drops out.");
-            currentRoom.getInventory().addItem(a.getInventory().removeItem("Silver Key", Integer.MAX_VALUE));
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Silver Key", Integer.MAX_VALUE), null);
             a.setOpenable(false);
             a.setDescription("painting of Mount Everest hangs on the wall");
           } else if(a.getName().equals("Plant")){
             System.out.println("You move the leaves aside and see a gold key hiding in the dirt.");
-            currentRoom.getInventory().addItem(a.getInventory().removeItem("Gold Key", Integer.MAX_VALUE));
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Gold Key", Integer.MAX_VALUE), null);
             a.setOpen(false);
             a.setDescription("big leafy plant rests in the middle of the room");            
           } else if(a.getName().equals("Desk")){
             System.out.println("You open the ajar drawer and see a bronze key inside");
-            currentRoom.getInventory().addItem(a.getInventory().removeItem("Bronze Key", Integer.MAX_VALUE));
+            currentRoom.getInventory().addItem(a.getInventory().removeItem("Bronze Key", Integer.MAX_VALUE), null);
             a.setOpenable(false);
             a.setDescription("large mahogany desk sits at the back of the room");
           }
-          }
+          } if(a.isBloody())
+              guess.setWepFound(true);
         } else 
             System.out.println("This is not an object.");
   }
 
   private void talkToNpc(String secondWord) {
-    if(secondWord.equalsIgnoreCase("Mrs. Peacock") || secondWord.equalsIgnoreCase("peacock") || currentRoom.getNpc().equals("Peacock")){
+    if(secondWord.toLowerCase().equalsIgnoreCase("Mrs. Peacock") || secondWord.toLowerCase().equalsIgnoreCase("peacock") || currentRoom.getNpc().equals("Peacock")){
       talk.talkToPeacock(parser);
     }
-    else if(secondWord.equalsIgnoreCase("Mr. Green") || secondWord.equalsIgnoreCase("green")){
+    else if(secondWord.toLowerCase().equalsIgnoreCase("Mr. Green") || secondWord.toLowerCase().equalsIgnoreCase("green")){
       talk.talkToGreen(parser);
     }
-    else if(secondWord.equalsIgnoreCase("Mr. Scarlet") || secondWord.equalsIgnoreCase("scarlet")){ 
+    else if(secondWord.toLowerCase().equalsIgnoreCase("Mr. Scarlet") || secondWord.toLowerCase().equalsIgnoreCase("scarlet")){ 
       talk.talkToScarlet(parser);
     }
-    else if(secondWord.equalsIgnoreCase("Prof. Plum") || secondWord.equalsIgnoreCase("plum")){ 
+    else if(secondWord.toLowerCase().equalsIgnoreCase("Prof. Plum") || secondWord.toLowerCase().equalsIgnoreCase("plum")){ 
       talk.talkToPlum(parser);
     }
-    else if(secondWord.equalsIgnoreCase("Col. Mustard") || secondWord.equalsIgnoreCase("mustard")){ 
+    else if(secondWord.toLowerCase().equalsIgnoreCase("Col. Mustard") || secondWord.toLowerCase().equalsIgnoreCase("mustard")){ 
       talk.talkToMustard(parser);
     }
-    else if(secondWord.equalsIgnoreCase("Mrs. White") || secondWord.equalsIgnoreCase("white")){ 
+    else if(secondWord.toLowerCase().equalsIgnoreCase("Mrs. White") || secondWord.toLowerCase().equalsIgnoreCase("white")){ 
       talk.talkToWhite(parser);
+    } else {
+      System.out.println("This person is not in the room.");
     }
   }
 
@@ -416,7 +437,7 @@ public class Game {
     } else if(guess.isWepFound())
       System.out.print("know that the murder weapon used is the " + guess.getMurWep().getName());
     else if(guess.isRoomFound())
-      System.out.print("know that the room the murder took place in is the" + guess.getMurRoom().getRoomName());
+      System.out.print("know that the room the murder took place in is the " + guess.getMurRoom().getRoomName());
     else
       System.out.print("don't know what room the murder took place in");
     System.out.println(".");

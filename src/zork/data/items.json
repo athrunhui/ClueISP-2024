@@ -13,7 +13,7 @@
     {
         "id": "Chest",
         "name": "Big Chest",
-        "description": "a very big chest",
+        "description": "very big chest",
         "room_id": "Lounge",
         "weight": "10000", 
         "isOpenable": "false"
@@ -21,7 +21,7 @@
     {
         "id": "Book",
         "name": "Sherlock Holmes Book",
-        "description": "An old dusty book. The title reads: 'Sherlock Holmes: A Study in Scarlet'.",
+        "description": "dusty old book. The title reads: 'Sherlock Holmes: A Study in Scarlet'.",
         "room_id": "Lounge",
         "weight": "15", 
         "isOpenable": "true", 
@@ -173,7 +173,7 @@
     {
         "id": "Chair",
         "name": "chair",
-        "description": "An exquisite Victorian style armchair. You see several more lining the walls.",
+        "description": "Victorian style armchair. You see several more lining the walls.",
         "room_id": "Ballroom",
         "weight": "50", 
         "isOpenable": "false",
@@ -336,7 +336,7 @@
     {
         "id": "Rope",
         "name": "Long Rope",
-        "description": "long brown rope hanging on the wall",
+        "description": "long rope hanging on the wall",
         "room_id": null,
         "weight": "10",
         "isExaminable": "true",
@@ -481,7 +481,7 @@
         "name": "Trail of Blood",
         "description": "trail of blood drops!!! This is the room where the murder took place!!!",
         "room_id": null,
-        "weight": "1", 
+        "weight": "999999", 
         "isExaminable": "true"
     }
 ]
